@@ -59,6 +59,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6049CF302CF9D4D90060140F /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				60F34B242CF5F5F500A386EF /* MainVC.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
 		6073D9DE2CF7482800718DC1 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
@@ -87,7 +95,7 @@
 		60F34B1F2CF5F5F500A386EF /* WOAI */ = {
 			isa = PBXGroup;
 			children = (
-				60F34B242CF5F5F500A386EF /* MainVC.swift */,
+				6049CF302CF9D4D90060140F /* ViewControllers */,
 				6073D9DE2CF7482800718DC1 /* ViewModels */,
 				60F34B3C2CF62A1300A386EF /* testAudio_0.mp3 */,
 				60F34B362CF5F76900A386EF /* audio.mp3 */,
