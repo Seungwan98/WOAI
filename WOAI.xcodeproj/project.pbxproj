@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6055C8B42D007EEC008678C1 /* AudioManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6055C8B32D007EE8008678C1 /* AudioManager.swift */; };
+		6055C8B72D00816C008678C1 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 6055C8B62D00816C008678C1 /* SnapKit */; };
+		6055C8B92D00816C008678C1 /* SnapKit-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = 6055C8B82D00816C008678C1 /* SnapKit-Dynamic */; };
+		6055C8BC2D008249008678C1 /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = 6055C8BB2D008249008678C1 /* Then */; };
 		6073D9DB2CF746CC00718DC1 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 6073D9DA2CF746CC00718DC1 /* RxCocoa */; };
 		6073D9DD2CF746CC00718DC1 /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = 6073D9DC2CF746CC00718DC1 /* RxRelay */; };
 		60F34B212CF5F5F500A386EF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F34B202CF5F5F500A386EF /* AppDelegate.swift */; };
@@ -27,6 +31,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6055C8B32D007EE8008678C1 /* AudioManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioManager.swift; sourceTree = "<group>"; };
 		60F34B1D2CF5F5F500A386EF /* WOAI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WOAI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		60F34B202CF5F5F500A386EF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		60F34B222CF5F5F500A386EF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -52,7 +57,10 @@
 				6073D9DB2CF746CC00718DC1 /* RxCocoa in Frameworks */,
 				60F34B402CF73C4E00A386EF /* OpenAI in Frameworks */,
 				6073D9DD2CF746CC00718DC1 /* RxRelay in Frameworks */,
+				6055C8BC2D008249008678C1 /* Then in Frameworks */,
 				60F34B3B2CF6208800A386EF /* WhisperKit in Frameworks */,
+				6055C8B72D00816C008678C1 /* SnapKit in Frameworks */,
+				6055C8B92D00816C008678C1 /* SnapKit-Dynamic in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -95,6 +103,7 @@
 		60F34B1F2CF5F5F500A386EF /* WOAI */ = {
 			isa = PBXGroup;
 			children = (
+				6055C8B32D007EE8008678C1 /* AudioManager.swift */,
 				6049CF302CF9D4D90060140F /* ViewControllers */,
 				6073D9DE2CF7482800718DC1 /* ViewModels */,
 				60F34B3C2CF62A1300A386EF /* testAudio_0.mp3 */,
@@ -133,6 +142,9 @@
 				60F34B3F2CF73C4E00A386EF /* OpenAI */,
 				6073D9DA2CF746CC00718DC1 /* RxCocoa */,
 				6073D9DC2CF746CC00718DC1 /* RxRelay */,
+				6055C8B62D00816C008678C1 /* SnapKit */,
+				6055C8B82D00816C008678C1 /* SnapKit-Dynamic */,
+				6055C8BB2D008249008678C1 /* Then */,
 			);
 			productName = WOAI;
 			productReference = 60F34B1D2CF5F5F500A386EF /* WOAI.app */;
@@ -166,6 +178,8 @@
 				60F34B392CF6208800A386EF /* XCRemoteSwiftPackageReference "whisperkit" */,
 				60F34B3E2CF73C4E00A386EF /* XCRemoteSwiftPackageReference "OpenAI" */,
 				6073D9D92CF746CC00718DC1 /* XCRemoteSwiftPackageReference "RxSwift" */,
+				6055C8B52D00816C008678C1 /* XCRemoteSwiftPackageReference "SnapKit" */,
+				6055C8BA2D008249008678C1 /* XCRemoteSwiftPackageReference "Then" */,
 			);
 			productRefGroup = 60F34B1E2CF5F5F500A386EF /* Products */;
 			projectDirPath = "";
@@ -202,6 +216,7 @@
 				60F34B422CF73CB100A386EF /* MainVM.swift in Sources */,
 				60F34B462CF7404100A386EF /* OpenAIModels.swift in Sources */,
 				60F34B212CF5F5F500A386EF /* AppDelegate.swift in Sources */,
+				6055C8B42D007EEC008678C1 /* AudioManager.swift in Sources */,
 				60F34B482CF744AA00A386EF /* ViewModel.swift in Sources */,
 				60F34B232CF5F5F500A386EF /* SceneDelegate.swift in Sources */,
 			);
@@ -428,6 +443,22 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		6055C8B52D00816C008678C1 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
+			requirement = {
+				kind = upToNextMinorVersion;
+				minimumVersion = 5.7.1;
+			};
+		};
+		6055C8BA2D008249008678C1 /* XCRemoteSwiftPackageReference "Then" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/devxoul/Then";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.0;
+			};
+		};
 		6073D9D92CF746CC00718DC1 /* XCRemoteSwiftPackageReference "RxSwift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/ReactiveX/RxSwift.git";
@@ -455,6 +486,21 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		6055C8B62D00816C008678C1 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6055C8B52D00816C008678C1 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+		6055C8B82D00816C008678C1 /* SnapKit-Dynamic */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6055C8B52D00816C008678C1 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = "SnapKit-Dynamic";
+		};
+		6055C8BB2D008249008678C1 /* Then */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6055C8BA2D008249008678C1 /* XCRemoteSwiftPackageReference "Then" */;
+			productName = Then;
+		};
 		6073D9DA2CF746CC00718DC1 /* RxCocoa */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 6073D9D92CF746CC00718DC1 /* XCRemoteSwiftPackageReference "RxSwift" */;

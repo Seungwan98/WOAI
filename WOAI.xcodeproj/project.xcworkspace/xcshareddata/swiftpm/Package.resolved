@@ -1,5 +1,5 @@
 {
-  "originHash" : "2d923b157a8f8351be96451ced435c75a66bdf2205baf65789d2dfb4592967e1",
+  "originHash" : "daf7c8998c1a78df8bbf962f196ae1ab0f198d17a7c76dd98f224d73e8490b93",
   "pins" : [
     {
       "identity" : "openai",
@@ -20,6 +20,15 @@
       }
     },
     {
+      "identity" : "snapkit",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/SnapKit/SnapKit.git",
+      "state" : {
+        "revision" : "2842e6e84e82eb9a8dac0100ca90d9444b0307f4",
+        "version" : "5.7.1"
+      }
+    },
+    {
       "identity" : "swift-argument-parser",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/apple/swift-argument-parser.git",
@@ -35,6 +44,15 @@
       "state" : {
         "revision" : "fc6543263e4caed9bf6107466d625cfae9357f08",
         "version" : "0.1.8"
+      }
+    },
+    {
+      "identity" : "then",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/devxoul/Then",
+      "state" : {
+        "revision" : "d41ef523faef0f911369f79c0b96815d9dbb6d7a",
+        "version" : "3.0.0"
       }
     },
     {
