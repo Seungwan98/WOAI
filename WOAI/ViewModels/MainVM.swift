@@ -40,7 +40,6 @@ class MainVM: ViewModel {
             guard let self else {return}
             do {
                 Task {
-                    print("text: \(text)")
                     let stream = try await self.openAIManager.sendMessageStream(text: text)
                             for try await message in stream {
                                 print("Stream message: \(message)")

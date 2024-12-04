@@ -40,7 +40,7 @@ class ChatGPTAPI: @unchecked Sendable {
     }
 
 
-    init(apiKey: String, model: String = "gpt-3.5-turbo", temperature: Double = 0.5) {
+    init(apiKey: String, model: String = "gpt-4o", temperature: Double = 0.5) {
         self.apiKey = apiKey
         self.model = model
 
@@ -93,9 +93,8 @@ class ChatGPTAPI: @unchecked Sendable {
         
     }
 
-    private func appendToHistoryList(userText: String, responseText: String) {
-        self.historyList.append(.init(role: "user", content: userText))
-        self.historyList.append(.init(role: "assistant", content: responseText))
+    private func appendToHistoryList(systemText: String, responseText: String) {
+        self.historyList.append(.init(role: "system", content: systemText))
     }
 
     // Funzione per inviare messaggi in streaming
@@ -127,6 +126,7 @@ class ChatGPTAPI: @unchecked Sendable {
             Task(priority: .userInitiated) { [weak self] in
                 guard let self = self else { return }
                 do {
+                    print("doit")
                     var responseText = ""
                     for try await line in result.lines {
                         if line.hasPrefix("data: "),
@@ -139,7 +139,7 @@ class ChatGPTAPI: @unchecked Sendable {
                     }
                     print("responseText\(responseText)")
 
-                    self.appendToHistoryList(userText: text, responseText: responseText)
+                    self.appendToHistoryList(systemText: text, responseText: responseText)
                     continuation.finish()
                 } catch {
                     print("error\(error)")
@@ -150,34 +150,34 @@ class ChatGPTAPI: @unchecked Sendable {
     }
 
     // Funzione per inviare messaggi senza streaming
-    func sendMessage(_ text: String) async throws -> String {
-        var urlRequest = self.urlRequest
-        urlRequest.httpBody = try jsonBody(text: text, stream: false)
-
-        let (data, response) = try await urlSession.data(for: urlRequest)
-
-        guard let httpResponse = response as? HTTPURLResponse else {
-            throw NSError.customError(withMessage: "Invalid response")
-        }
-
-        guard 200...299 ~= httpResponse.statusCode else {
-            
-            var error = "Bad Response: \(httpResponse.statusCode)"
-            if let errorResponse = try? jsonDecoder.decode(ErrorRootResponse.self, from: data).error {
-                error.append("\n\(errorResponse.message)")
-            }
-            throw NSError.customError(withMessage: error)
-        }
-
-        do {
-            let completionResponse = try self.jsonDecoder.decode(CompletionResponse.self, from: data)
-            let responseText = completionResponse.choices.first?.message.content ?? ""
-            self.appendToHistoryList(userText: text, responseText: responseText)
-            return responseText
-        } catch {
-            throw error
-        }
-    }
+//    func sendMessage(_ text: String) async throws -> String {
+//        var urlRequest = self.urlRequest
+//        urlRequest.httpBody = try jsonBody(text: text, stream: false)
+//
+//        let (data, response) = try await urlSession.data(for: urlRequest)
+//
+//        guard let httpResponse = response as? HTTPURLResponse else {
+//            throw NSError.customError(withMessage: "Invalid response")
+//        }
+//
+//        guard 200...299 ~= httpResponse.statusCode else {
+//            
+//            var error = "Bad Response: \(httpResponse.statusCode)"
+//            if let errorResponse = try? jsonDecoder.decode(ErrorRootResponse.self, from: data).error {
+//                error.append("\n\(errorResponse.message)")
+//            }
+//            throw NSError.customError(withMessage: error)
+//        }
+//
+//        do {
+//            let completionResponse = try self.jsonDecoder.decode(CompletionResponse.self, from: data)
+//            let responseText = completionResponse.choices.first?.message.content ?? ""
+//            self.appendToHistoryList(systemText: text, responseText: responseText)
+//            return responseText
+//        } catch {
+//            throw error
+//        }
+//    }
 
     // Funzione per caricare la cronologia
 //    func loadHistoryList() {

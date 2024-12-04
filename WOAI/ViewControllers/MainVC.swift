@@ -17,6 +17,7 @@ class mainVC: UIViewController, AVAudioRecorderDelegate {
     private var audioRecorder: AVAudioRecorder?
     private let audioSession = AVAudioSession.sharedInstance()
     private var recordingFileURL: URL?
+    private var fileName: String  = ""
     
     
     private var recordBtn = UIButton().then {
@@ -27,16 +28,15 @@ class mainVC: UIViewController, AVAudioRecorderDelegate {
     
     @objc
     func record() {
-        
+       
         if let recorder = audioRecorder, recorder.isRecording {
-            audioRecorder?.stop()
+            self.stop()
 
         } else {
-            print("stop")
             self.recordBtn.setTitle("stop", for: .normal)
 
-            let fileName = "testing\(UUID()).wav"
-            let fileURL = FileManager.default.urls(for: .documentDirectory , in: .userDomainMask).first!.appendingPathComponent(fileName)
+            self.fileName = "testing\(UUID()).m4a"
+            let fileURL = FileManager.default.urls(for: .documentDirectory , in: .userDomainMask).first!.appendingPathComponent(self.fileName)
             recordingFileURL = fileURL
             
             let settings: [String: Any] = [
@@ -62,7 +62,11 @@ class mainVC: UIViewController, AVAudioRecorderDelegate {
     func stop() {
         print("stop")
         self.recordBtn.setTitle("record", for: .normal)
+        
+     
+
         audioRecorder?.stop()
+        WhisperManager.shared.setText(fileName: "testing")
     }
 
  
@@ -91,6 +95,13 @@ var disposeBag = DisposeBag()
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
+        do {
+            try audioSession.setCategory(.playAndRecord, mode: .default, options: [.defaultToSpeaker])
+            try audioSession.setActive(true)
+        } catch {
+            print("Audio session setup failed: \(error)")
+        }
     
 
         // 권한
@@ -114,22 +125,7 @@ var disposeBag = DisposeBag()
         
         
        
-//        Task {
-//           let pipe = try? await WhisperKit()
-//            
-//            
-//            
-//        
-//            
-//           
-//
-//          
-//            let transcription = try? await pipe!.transcribe(audioPath: "/Users/seungwan/xcode/WOAI/WOAI/testAudio_0.mp3", decodeOptions: DecodingOptions(language: "ko"))?.text
-//            
-//            text.onNext(transcription ?? "")
-//            
-//            
-//        }
+        
     }
     
     
