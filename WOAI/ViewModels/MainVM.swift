@@ -19,6 +19,7 @@ class MainVM: ViewModel {
     
     private var url = BehaviorSubject<URL?>(value: nil)
 
+  
     
     let openAIManager: ChatGPTAPI
     let whisperManager: WhisperManager
@@ -38,7 +39,13 @@ class MainVM: ViewModel {
     
     
     init() {
-        self.openAIManager = ChatGPTAPI(apiKey: Environment.chatGPTApiKey)
+        var apiKey: String {
+                guard let apiKey = Bundle.main.object(forInfoDictionaryKey: "chatGPTApiKey") as? String else {
+                    fatalError("API_KEY not found in Info.plist")
+                }
+            return apiKey
+        }
+        self.openAIManager = ChatGPTAPI(apiKey: apiKey)
         self.whisperManager = WhisperManager(chatGPT: self.openAIManager)
     }
     
