@@ -7,7 +7,7 @@
 
 import Foundation
 
-class ChatGPTAPI: @unchecked Sendable {
+class OpenAiManager: @unchecked Sendable {
 
     
     
