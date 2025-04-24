@@ -11,7 +11,7 @@
     <key>NSMicrophoneUsageDescription</key>
     <string>WOAI 앱에서 음성 인식을 위해 마이크를 사용합니다.</string>
 
-    <!-- SwiftUI 전환 시 SceneManifest 제거해도 무방 -->
-    <!-- 아래 삭제해도 무관 / SceneDelegate 안 쓸 경우 -->
+    <key>UIUserInterfaceStyle</key>
+    <string>Light</string>
 </dict>
 </plist>

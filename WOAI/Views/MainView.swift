@@ -43,34 +43,19 @@ struct MainView: View {
     @StateObject private var router = AppRouter()
     
     var body: some View {
-        NavigationStack(path: $router.path) {
-            TabView(selection: $router.selectedTab) {
-                HomeView()
-                    .tag(AppRouter.Tab.home)
-                    .tabItem { Label("Home", systemImage: "house") }
-                
-                RecordView()
-                    .tag(AppRouter.Tab.settings)
-                    .tabItem { Label("Settings", systemImage: "gear") }
-                
-                SettingView()
-                    .tag(AppRouter.Tab.profile)
-                    .tabItem { Label("Profile", systemImage: "person") }
-            }
-            .navigationDestination(for: SomeRoute.self) { route in
-                switch route {
-                case .home:
-                    Text("h")
-                case .record:
-                    Text("r")
-                case .settings:
-                    Text("s")
-                    
-                    
-                }
-            }
+        TabView(selection: $router.selectedTab) {
+            HomeView()
+                .tag(AppRouter.Tab.home)
+                .tabItem { Label("Home", systemImage: "house") }
+            
+            RecordView()
+                .tag(AppRouter.Tab.settings)
+                .tabItem { Label("Settings", systemImage: "gear") }
+            
+            SettingView()
+                .tag(AppRouter.Tab.profile)
+                .tabItem { Label("Profile", systemImage: "person") }
         }
-        .environmentObject(router)
     }
     
 }

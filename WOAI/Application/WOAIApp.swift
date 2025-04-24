@@ -9,10 +9,24 @@ import SwiftUI
 
 @main
 struct WOAIApp: App {
+    @StateObject private var router = AppRouter()
 
     var body: some Scene {
         WindowGroup {
-            MainView() // 너가 만든 SwiftUI 뷰
+            NavigationStack(path: $router.path) { // ✅ 전역 네비게이션 스택
+                MainView() // ✅ 탭 뷰는 여기에 포함됨
+            }
+            .environmentObject(router) // ✅ 라우터도 전역 전달
+            .navigationDestination(for: SomeRoute.self) { route in
+                switch route {
+                case .home:
+                    HomeView()
+                case .record:
+                    RecordView()
+                case .settings:
+                    SettingView()
+                }
+            }
         }
     }
 }
