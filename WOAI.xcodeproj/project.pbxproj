@@ -30,6 +30,10 @@
 		60F34B422CF73CB100A386EF /* RecordVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F34B412CF73CB100A386EF /* RecordVM.swift */; };
 		60F34B442CF7401000A386EF /* OpenAIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F34B432CF7401000A386EF /* OpenAIManager.swift */; };
 		60F34B462CF7404100A386EF /* OpenAIModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F34B452CF7404100A386EF /* OpenAIModels.swift */; };
+		60F9E9452DB9EEEF0009B436 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F9E9442DB9EEED0009B436 /* Router.swift */; };
+		60F9E9472DBA1E860009B436 /* MeetingTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F9E9462DBA1E7D0009B436 /* MeetingTask.swift */; };
+		60F9E9492DBA27930009B436 /* JsonManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F9E9482DBA278E0009B436 /* JsonManager.swift */; };
+		60F9E94E2DBA34DE0009B436 /* TaskModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 60F9E94C2DBA34DE0009B436 /* TaskModel.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +56,10 @@
 		60F34B412CF73CB100A386EF /* RecordVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordVM.swift; sourceTree = "<group>"; };
 		60F34B432CF7401000A386EF /* OpenAIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenAIManager.swift; sourceTree = "<group>"; };
 		60F34B452CF7404100A386EF /* OpenAIModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenAIModels.swift; sourceTree = "<group>"; };
+		60F9E9442DB9EEED0009B436 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
+		60F9E9462DBA1E7D0009B436 /* MeetingTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingTask.swift; sourceTree = "<group>"; };
+		60F9E9482DBA278E0009B436 /* JsonManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonManager.swift; sourceTree = "<group>"; };
+		60F9E94D2DBA34DE0009B436 /* TaskModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TaskModel.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +100,7 @@
 		60453EDD2DB91A1D0053859F /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				60F9E9482DBA278E0009B436 /* JsonManager.swift */,
 				60F34B432CF7401000A386EF /* OpenAIManager.swift */,
 				6055C8B32D007EE8008678C1 /* WhisperManager.swift */,
 			);
@@ -101,6 +110,7 @@
 		60453EDE2DB91A2D0053859F /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				60F9E9462DBA1E7D0009B436 /* MeetingTask.swift */,
 				60F34B452CF7404100A386EF /* OpenAIModels.swift */,
 			);
 			path = Models;
@@ -117,9 +127,9 @@
 		6049CF302CF9D4D90060140F /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				60453ED32DB8EF590053859F /* MainView.swift */,
 				60453ED72DB8F0880053859F /* SettingView.swift */,
 				60453ED52DB8F0680053859F /* HomeView.swift */,
-				60453ED32DB8EF590053859F /* MainView.swift */,
 				60F34B242CF5F5F500A386EF /* RecordView.swift */,
 			);
 			path = Views;
@@ -152,8 +162,9 @@
 		60F34B1F2CF5F5F500A386EF /* WOAI */ = {
 			isa = PBXGroup;
 			children = (
-				60F9E9432DB9EE7D0009B436 /* Router */,
+				60F9E94C2DBA34DE0009B436 /* TaskModel.xcdatamodeld */,
 				60566C2F2D64C10A00509D48 /* config.xcconfig */,
+				60F9E9432DB9EE7D0009B436 /* Router */,
 				60453EDF2DB91A420053859F /* Application */,
 				60453EDE2DB91A2D0053859F /* Models */,
 				60453EDD2DB91A1D0053859F /* Managers */,
@@ -172,6 +183,7 @@
 		60F9E9432DB9EE7D0009B436 /* Router */ = {
 			isa = PBXGroup;
 			children = (
+				60F9E9442DB9EEED0009B436 /* Router.swift */,
 			);
 			path = Router;
 			sourceTree = "<group>";
@@ -269,13 +281,17 @@
 				60453ED82DB8F0900053859F /* SettingView.swift in Sources */,
 				60F34B252CF5F5F500A386EF /* RecordView.swift in Sources */,
 				60F34B442CF7401000A386EF /* OpenAIManager.swift in Sources */,
+				60F9E9452DB9EEEF0009B436 /* Router.swift in Sources */,
+				60F9E94E2DBA34DE0009B436 /* TaskModel.xcdatamodeld in Sources */,
 				60453ED62DB8F0690053859F /* HomeView.swift in Sources */,
 				60453ED22DB8EC400053859F /* WOAIApp.swift in Sources */,
 				60F34B422CF73CB100A386EF /* RecordVM.swift in Sources */,
 				60F34B462CF7404100A386EF /* OpenAIModels.swift in Sources */,
+				60F9E9492DBA27930009B436 /* JsonManager.swift in Sources */,
 				60453EDB2DB8FC6C0053859F /* Color+.swift in Sources */,
 				60F34B212CF5F5F500A386EF /* AppDelegate.swift in Sources */,
 				6055C8B42D007EEC008678C1 /* WhisperManager.swift in Sources */,
+				60F9E9472DBA1E860009B436 /* MeetingTask.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -570,6 +586,19 @@
 			productName = OpenAI;
 		};
 /* End XCSwiftPackageProductDependency section */
+
+/* Begin XCVersionGroup section */
+		60F9E94C2DBA34DE0009B436 /* TaskModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				60F9E94D2DBA34DE0009B436 /* TaskModel.xcdatamodel */,
+			);
+			currentVersion = 60F9E94D2DBA34DE0009B436 /* TaskModel.xcdatamodel */;
+			path = TaskModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 60F34B152CF5F5F500A386EF /* Project object */;
 }

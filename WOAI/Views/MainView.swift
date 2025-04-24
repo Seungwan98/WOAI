@@ -8,36 +8,11 @@
 import SwiftUI
 import Combine
 
-#Preview {
-    MainView()
-}
+//#Preview {
+//    MainView()
+//}
 
-class AppRouter: ObservableObject {
-    @Published var path = NavigationPath()
-    @Published var selectedTab: Tab = .home
 
-    enum Tab {
-        case home, settings, profile
-    }
-
-    func push<Destination: Hashable>(_ destination: Destination) {
-        path.append(destination)
-    }
-
-    func pop() {
-        path.removeLast()
-    }
-
-    func reset() {
-        path = NavigationPath()
-    }
-}
-
-enum SomeRoute: Hashable {
-    case home
-    case record
-    case settings
-}
 
 struct MainView: View {
     @StateObject private var router = AppRouter()
@@ -47,14 +22,15 @@ struct MainView: View {
             HomeView()
                 .tag(AppRouter.Tab.home)
                 .tabItem { Label("Home", systemImage: "house") }
-            
             RecordView()
+                .tag(AppRouter.Tab.record)
+                .tabItem { Label("Record", systemImage: "microphone") }
+            SettingView()
                 .tag(AppRouter.Tab.settings)
                 .tabItem { Label("Settings", systemImage: "gear") }
+         
             
-            SettingView()
-                .tag(AppRouter.Tab.profile)
-                .tabItem { Label("Profile", systemImage: "person") }
+        
         }
     }
     

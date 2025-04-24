@@ -5,11 +5,8 @@ import WhisperKit
 
 final class WhisperManager {
     
-    let chatGPT: OpenAiManager
     
-    init(chatGPT: OpenAiManager) {
-        self.chatGPT = chatGPT
-    }
+    init() {}
 
     /// 로컬 파일 경로로부터 WhisperKit을 이용해 텍스트 추출
     func transcribeAudio(at fileURL: URL) async throws -> String {
