@@ -11,24 +11,66 @@ import Combine
 #Preview {
     MainView()
 }
-struct MainView: View {
-    var body: some View {
-        TabView {
-            HomeView()
-                .tabItem {
-                    Label("홈", systemImage: "house")
-                }
 
-            RecordView()
-                .tabItem {
-                    Label("녹음", systemImage: "mic.fill")
-                }
+class AppRouter: ObservableObject {
+    @Published var path = NavigationPath()
+    @Published var selectedTab: Tab = .home
 
-            SettingView()
-                .tabItem {
-                    Label("설정", systemImage: "gear")
-                }
-        }
+    enum Tab {
+        case home, settings, profile
+    }
+
+    func push<Destination: Hashable>(_ destination: Destination) {
+        path.append(destination)
+    }
+
+    func pop() {
+        path.removeLast()
+    }
+
+    func reset() {
+        path = NavigationPath()
     }
 }
 
+enum SomeRoute: Hashable {
+    case home
+    case record
+    case settings
+}
+
+struct MainView: View {
+    @StateObject private var router = AppRouter()
+    
+    var body: some View {
+        NavigationStack(path: $router.path) {
+            TabView(selection: $router.selectedTab) {
+                HomeView()
+                    .tag(AppRouter.Tab.home)
+                    .tabItem { Label("Home", systemImage: "house") }
+                
+                RecordView()
+                    .tag(AppRouter.Tab.settings)
+                    .tabItem { Label("Settings", systemImage: "gear") }
+                
+                SettingView()
+                    .tag(AppRouter.Tab.profile)
+                    .tabItem { Label("Profile", systemImage: "person") }
+            }
+            .navigationDestination(for: SomeRoute.self) { route in
+                switch route {
+                case .home:
+                    Text("h")
+                case .record:
+                    Text("r")
+                case .settings:
+                    Text("s")
+                    
+                    
+                }
+            }
+        }
+        .environmentObject(router)
+    }
+    
+}
