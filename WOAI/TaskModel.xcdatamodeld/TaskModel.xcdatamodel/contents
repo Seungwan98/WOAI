@@ -1,24 +1,27 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="23507" systemVersion="24E263" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <entity name="IssueCoreData" representedClassName="IssueCoreData" syncable="YES" codeGenerationType="class">
-        <attribute name="actionItems" optional="YES" attributeType="Transformable"/>
+    <entity name="IssueCoreData" representedClassName=".IssueCoreData" syncable="YES">
+        <attribute name="actionItems" optional="YES" attributeType="Transformable" valueTransformerName="NSSecureUnarchiveFromData"/>
         <attribute name="details" optional="YES" attributeType="String"/>
         <attribute name="issueName" optional="YES" attributeType="String"/>
         <relationship name="meetingTask" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="MeetingTaskCoreData" inverseName="issues" inverseEntity="MeetingTaskCoreData"/>
     </entity>
-    <entity name="MeetingTaskCoreData" representedClassName="MeetingTaskCoreData" syncable="YES" codeGenerationType="class">
+    <entity name="MeetingTaskCoreData" representedClassName=".MeetingTaskCoreData" syncable="YES">
+        <attribute name="meetingSummary" optional="YES" attributeType="String"/>
+        <attribute name="meetingTitle" optional="YES" attributeType="String"/>
+        <attribute name="recordedAt" optional="YES" attributeType="String"/>
         <relationship name="issues" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="IssueCoreData" inverseName="meetingTask" inverseEntity="IssueCoreData"/>
         <relationship name="schedulingTasks" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="SchedulingTaskCoreData" inverseName="meetingTask" inverseEntity="SchedulingTaskCoreData"/>
         <relationship name="timeline" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="TimelineCoreData" inverseName="meetingTask" inverseEntity="TimelineCoreData"/>
     </entity>
-    <entity name="SchedulingTaskCoreData" representedClassName="SchedulingTaskCoreData" syncable="YES" codeGenerationType="class">
+    <entity name="SchedulingTaskCoreData" representedClassName=".SchedulingTaskCoreData" syncable="YES">
         <attribute name="date" optional="YES" attributeType="String"/>
-        <attribute name="participants" optional="YES" attributeType="Transformable"/>
+        <attribute name="participants" optional="YES" attributeType="Transformable" valueTransformerName="NSSecureUnarchiveFromData"/>
         <attribute name="subject" optional="YES" attributeType="String"/>
         <attribute name="time" optional="YES" attributeType="String"/>
         <relationship name="meetingTask" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="MeetingTaskCoreData" inverseName="schedulingTasks" inverseEntity="MeetingTaskCoreData"/>
     </entity>
-    <entity name="TimelineCoreData" representedClassName="TimelineCoreData" syncable="YES" codeGenerationType="class">
+    <entity name="TimelineCoreData" representedClassName=".TimelineCoreData" syncable="YES">
         <attribute name="discussion" optional="YES" attributeType="String"/>
         <attribute name="time" optional="YES" attributeType="String"/>
         <relationship name="meetingTask" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="MeetingTaskCoreData" inverseName="timeline" inverseEntity="MeetingTaskCoreData"/>

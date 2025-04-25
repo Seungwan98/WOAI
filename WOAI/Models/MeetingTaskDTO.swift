@@ -8,15 +8,24 @@
 import Foundation
 
 // MARK: - MeetingTask
-struct MeetingTask: Codable {
+struct MeetingTaskDTO: Codable {
+    var uuid: UUID?
+    let meetingTitle: String
+    let meetingSummary: String
+    let recordedAt: String
     let issues: [Issue]
     let timeline: [Timeline]
     let schedulingTasks: [SchedulingTask]
 
+    
+    
     enum CodingKeys: String, CodingKey {
         case issues = "Issues"
         case timeline = "Timeline"
         case schedulingTasks = "SchedulingTasks"
+        case meetingTitle = "MeetingTitle"
+        case meetingSummary = "MeetingSummary"
+        case recordedAt = "RecordedAt"
     }
 }
 
@@ -54,3 +63,5 @@ struct Timeline: Codable {
         case discussion = "Discussion"
     }
 }
+
+

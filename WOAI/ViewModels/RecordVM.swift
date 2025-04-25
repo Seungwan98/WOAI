@@ -69,7 +69,7 @@ class RecordVM: ObservableObject {
         //            transcribeAndSummarize(url: URL(string: todo))
         //        }
         
-        if let url = Bundle.main.url(forResource: "testing", withExtension: "m4a") {
+        if let url = Bundle.main.url(forResource: "testAudio_0", withExtension: "m4a") {
             transcribeAndSummarize(url: url)
             
         } else {
@@ -86,8 +86,55 @@ class RecordVM: ObservableObject {
                 
                 for try await message in meetingTask {
                     await MainActor.run {
-                        let taskNames = message.issues.map { $0.issueName }.reduce(""){ $0+$1 }
-                        self.labelText = taskNames
+                       let viewContext = CoreDataManager.shared.container.viewContext
+                        let newMeeting = MeetingTaskCoreData(context: viewContext)
+                        
+                        newMeeting.meetingTitle = message.meetingTitle
+                        newMeeting.meetingSummary = message.meetingSummary
+                        newMeeting.recordedAt = message.recordedAt
+                        
+                        let issuesCoreData = message.issues.map {
+                            let newIssue = IssueCoreData(context: viewContext)
+                            newIssue.actionItems = $0.actionItems
+                            newIssue.details = $0.details
+                            newIssue.issueName = $0.issueName
+                            print("newIssue \($0)")
+
+                            newMeeting.addToIssues(newIssue)
+
+                            return newIssue
+                        }
+                        let timelineCoreData = message.timeline.map {
+                            let newTimeline = TimelineCoreData(context: viewContext)
+                            newTimeline.discussion = $0.discussion
+                            newTimeline.time = $0.time
+                            newMeeting.addToTimeline(newTimeline)
+                            print("newTimeline \($0)")
+
+                            return newTimeline
+                        }
+                        let schedulingTaskCoreData = message.schedulingTasks.map {
+                            let newSchedulingTask = SchedulingTaskCoreData(context: viewContext)
+                            newSchedulingTask.date = $0.date
+                            newSchedulingTask.participants = $0.participants
+                            newSchedulingTask.subject = $0.subject
+                            newSchedulingTask.time = $0.time
+                            newMeeting.addToSchedulingTasks(newSchedulingTask)
+
+                            print("newSchedulingTask \($0)")
+                            return newSchedulingTask
+                        }
+
+                        
+                        do {
+                            
+                            try viewContext.save()
+                            print("저장 성공")
+                        } catch {
+                            print("저장 실패: \(error)")
+                        }
+                        
+                        self.labelText = "완료"
                     }
                 }
             } catch {

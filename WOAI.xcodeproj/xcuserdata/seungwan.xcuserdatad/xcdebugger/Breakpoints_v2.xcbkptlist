@@ -3,4 +3,22 @@
    uuid = "8EF3A1B0-CE5F-435A-BAF2-4DA2F9219324"
    type = "1"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "8548EB4D-2258-4E15-A00A-A0729DFB11B9"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../Library/Developer/Xcode/DerivedData/WOAI-bqvsgyiykzjjjqdqrcyyhfpstrca/SourcePackages/checkouts/whisperkit/Sources/WhisperKit/Core/WhisperKit.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "14"
+            endingLineNumber = "14"
+            landmarkName = "WhisperKit"
+            landmarkType = "3">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

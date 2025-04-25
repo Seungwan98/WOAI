@@ -3,10 +3,23 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 77;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		602A0C9B2DBB723A003255F2 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 602A0C9A2DBB7234003255F2 /* CoreDataManager.swift */; };
+		602A0C9D2DBB8048003255F2 /* HomeVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 602A0C9C2DBB8048003255F2 /* HomeVM.swift */; };
+		602A0CC62DBBBB06003255F2 /* WhisperKit in Frameworks */ = {isa = PBXBuildFile; productRef = 602A0CC52DBBBB06003255F2 /* WhisperKit */; };
+		602A0CDF2DBBC072003255F2 /* IssueCoreData+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 602A0CD72DBBC072003255F2 /* IssueCoreData+CoreDataClass.swift */; };
+		602A0CE02DBBC072003255F2 /* IssueCoreData+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 602A0CD82DBBC072003255F2 /* IssueCoreData+CoreDataProperties.swift */; };
+		602A0CE32DBBC072003255F2 /* SchedulingTaskCoreData+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 602A0CDB2DBBC072003255F2 /* SchedulingTaskCoreData+CoreDataClass.swift */; };
+		602A0CE42DBBC072003255F2 /* SchedulingTaskCoreData+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 602A0CDC2DBBC072003255F2 /* SchedulingTaskCoreData+CoreDataProperties.swift */; };
+		602A0CE52DBBC072003255F2 /* TimelineCoreData+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 602A0CDD2DBBC072003255F2 /* TimelineCoreData+CoreDataClass.swift */; };
+		602A0CE62DBBC072003255F2 /* TimelineCoreData+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 602A0CDE2DBBC072003255F2 /* TimelineCoreData+CoreDataProperties.swift */; };
+		602A0CE92DBBCCE3003255F2 /* MeetingTaskCoreData+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 602A0CE72DBBCCE3003255F2 /* MeetingTaskCoreData+CoreDataClass.swift */; };
+		602A0CEA2DBBCCE3003255F2 /* MeetingTaskCoreData+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 602A0CE82DBBCCE3003255F2 /* MeetingTaskCoreData+CoreDataProperties.swift */; };
+		602A0CEC2DBBD59F003255F2 /* MeetingTaskModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 602A0CEB2DBBD59B003255F2 /* MeetingTaskModel.swift */; };
+		602A0CEE2DBBE1B5003255F2 /* testAudio_0.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 602A0CED2DBBE1B5003255F2 /* testAudio_0.m4a */; };
 		60453ED22DB8EC400053859F /* WOAIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60453ED12DB8EC350053859F /* WOAIApp.swift */; };
 		60453ED42DB8EF620053859F /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60453ED32DB8EF590053859F /* MainView.swift */; };
 		60453ED62DB8F0690053859F /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60453ED52DB8F0680053859F /* HomeView.swift */; };
@@ -14,29 +27,34 @@
 		60453EDB2DB8FC6C0053859F /* Color+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60453EDA2DB8FC680053859F /* Color+.swift */; };
 		6055C8B42D007EEC008678C1 /* WhisperManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6055C8B32D007EE8008678C1 /* WhisperManager.swift */; };
 		6055C8C02D00A550008678C1 /* testing.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 6055C8BF2D00A550008678C1 /* testing.m4a */; };
-		6055C8C32D00ADB1008678C1 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 6055C8C22D00ADB1008678C1 /* SnapKit */; };
-		6055C8C62D00ADEF008678C1 /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = 6055C8C52D00ADEF008678C1 /* Then */; };
 		60566C302D64C11000509D48 /* config.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 60566C2F2D64C10A00509D48 /* config.xcconfig */; };
-		6073D9DB2CF746CC00718DC1 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 6073D9DA2CF746CC00718DC1 /* RxCocoa */; };
-		6073D9DD2CF746CC00718DC1 /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = 6073D9DC2CF746CC00718DC1 /* RxRelay */; };
 		60F34B212CF5F5F500A386EF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F34B202CF5F5F500A386EF /* AppDelegate.swift */; };
 		60F34B252CF5F5F500A386EF /* RecordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F34B242CF5F5F500A386EF /* RecordView.swift */; };
 		60F34B2A2CF5F5F800A386EF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 60F34B292CF5F5F800A386EF /* Assets.xcassets */; };
 		60F34B2D2CF5F5F800A386EF /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 60F34B2C2CF5F5F800A386EF /* Base */; };
 		60F34B372CF5F76900A386EF /* audio.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 60F34B362CF5F76900A386EF /* audio.mp3 */; };
-		60F34B3B2CF6208800A386EF /* WhisperKit in Frameworks */ = {isa = PBXBuildFile; productRef = 60F34B3A2CF6208800A386EF /* WhisperKit */; };
-		60F34B3D2CF62A1300A386EF /* testAudio_0.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 60F34B3C2CF62A1300A386EF /* testAudio_0.mp3 */; };
-		60F34B402CF73C4E00A386EF /* OpenAI in Frameworks */ = {isa = PBXBuildFile; productRef = 60F34B3F2CF73C4E00A386EF /* OpenAI */; };
 		60F34B422CF73CB100A386EF /* RecordVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F34B412CF73CB100A386EF /* RecordVM.swift */; };
 		60F34B442CF7401000A386EF /* OpenAIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F34B432CF7401000A386EF /* OpenAIManager.swift */; };
 		60F34B462CF7404100A386EF /* OpenAIModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F34B452CF7404100A386EF /* OpenAIModels.swift */; };
 		60F9E9452DB9EEEF0009B436 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F9E9442DB9EEED0009B436 /* Router.swift */; };
-		60F9E9472DBA1E860009B436 /* MeetingTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F9E9462DBA1E7D0009B436 /* MeetingTask.swift */; };
+		60F9E9472DBA1E860009B436 /* MeetingTaskDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F9E9462DBA1E7D0009B436 /* MeetingTaskDTO.swift */; };
 		60F9E9492DBA27930009B436 /* JsonManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F9E9482DBA278E0009B436 /* JsonManager.swift */; };
 		60F9E94E2DBA34DE0009B436 /* TaskModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 60F9E94C2DBA34DE0009B436 /* TaskModel.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		602A0C9A2DBB7234003255F2 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		602A0C9C2DBB8048003255F2 /* HomeVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVM.swift; sourceTree = "<group>"; };
+		602A0CD72DBBC072003255F2 /* IssueCoreData+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "IssueCoreData+CoreDataClass.swift"; sourceTree = "<group>"; };
+		602A0CD82DBBC072003255F2 /* IssueCoreData+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "IssueCoreData+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		602A0CDB2DBBC072003255F2 /* SchedulingTaskCoreData+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SchedulingTaskCoreData+CoreDataClass.swift"; sourceTree = "<group>"; };
+		602A0CDC2DBBC072003255F2 /* SchedulingTaskCoreData+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SchedulingTaskCoreData+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		602A0CDD2DBBC072003255F2 /* TimelineCoreData+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TimelineCoreData+CoreDataClass.swift"; sourceTree = "<group>"; };
+		602A0CDE2DBBC072003255F2 /* TimelineCoreData+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TimelineCoreData+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		602A0CE72DBBCCE3003255F2 /* MeetingTaskCoreData+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MeetingTaskCoreData+CoreDataClass.swift"; sourceTree = "<group>"; };
+		602A0CE82DBBCCE3003255F2 /* MeetingTaskCoreData+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MeetingTaskCoreData+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		602A0CEB2DBBD59B003255F2 /* MeetingTaskModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingTaskModel.swift; sourceTree = "<group>"; };
+		602A0CED2DBBE1B5003255F2 /* testAudio_0.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = testAudio_0.m4a; sourceTree = "<group>"; };
 		60453ED12DB8EC350053859F /* WOAIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WOAIApp.swift; sourceTree = "<group>"; };
 		60453ED32DB8EF590053859F /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		60453ED52DB8F0680053859F /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -52,12 +70,11 @@
 		60F34B2C2CF5F5F800A386EF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		60F34B2E2CF5F5F800A386EF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		60F34B362CF5F76900A386EF /* audio.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = audio.mp3; sourceTree = "<group>"; };
-		60F34B3C2CF62A1300A386EF /* testAudio_0.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = testAudio_0.mp3; sourceTree = "<group>"; };
 		60F34B412CF73CB100A386EF /* RecordVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordVM.swift; sourceTree = "<group>"; };
 		60F34B432CF7401000A386EF /* OpenAIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenAIManager.swift; sourceTree = "<group>"; };
 		60F34B452CF7404100A386EF /* OpenAIModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenAIModels.swift; sourceTree = "<group>"; };
 		60F9E9442DB9EEED0009B436 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
-		60F9E9462DBA1E7D0009B436 /* MeetingTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingTask.swift; sourceTree = "<group>"; };
+		60F9E9462DBA1E7D0009B436 /* MeetingTaskDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingTaskDTO.swift; sourceTree = "<group>"; };
 		60F9E9482DBA278E0009B436 /* JsonManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonManager.swift; sourceTree = "<group>"; };
 		60F9E94D2DBA34DE0009B436 /* TaskModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TaskModel.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -67,18 +84,35 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6073D9DB2CF746CC00718DC1 /* RxCocoa in Frameworks */,
-				6055C8C62D00ADEF008678C1 /* Then in Frameworks */,
-				60F34B402CF73C4E00A386EF /* OpenAI in Frameworks */,
-				6073D9DD2CF746CC00718DC1 /* RxRelay in Frameworks */,
-				60F34B3B2CF6208800A386EF /* WhisperKit in Frameworks */,
-				6055C8C32D00ADB1008678C1 /* SnapKit in Frameworks */,
+				602A0CC62DBBBB06003255F2 /* WhisperKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		602A0CAE2DBB93CD003255F2 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				602A0CE72DBBCCE3003255F2 /* MeetingTaskCoreData+CoreDataClass.swift */,
+				602A0CE82DBBCCE3003255F2 /* MeetingTaskCoreData+CoreDataProperties.swift */,
+				602A0CD72DBBC072003255F2 /* IssueCoreData+CoreDataClass.swift */,
+				602A0CD82DBBC072003255F2 /* IssueCoreData+CoreDataProperties.swift */,
+				602A0CDB2DBBC072003255F2 /* SchedulingTaskCoreData+CoreDataClass.swift */,
+				602A0CDC2DBBC072003255F2 /* SchedulingTaskCoreData+CoreDataProperties.swift */,
+				602A0CDD2DBBC072003255F2 /* TimelineCoreData+CoreDataClass.swift */,
+				602A0CDE2DBBC072003255F2 /* TimelineCoreData+CoreDataProperties.swift */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
+		602A0CC42DBBBB06003255F2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		60453ED92DB8FC5D0053859F /* Extension */ = {
 			isa = PBXGroup;
 			children = (
@@ -90,7 +124,7 @@
 		60453EDC2DB919A30053859F /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				60F34B3C2CF62A1300A386EF /* testAudio_0.mp3 */,
+				602A0CED2DBBE1B5003255F2 /* testAudio_0.m4a */,
 				6055C8BF2D00A550008678C1 /* testing.m4a */,
 				60F34B362CF5F76900A386EF /* audio.mp3 */,
 			);
@@ -100,6 +134,7 @@
 		60453EDD2DB91A1D0053859F /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				602A0C9A2DBB7234003255F2 /* CoreDataManager.swift */,
 				60F9E9482DBA278E0009B436 /* JsonManager.swift */,
 				60F34B432CF7401000A386EF /* OpenAIManager.swift */,
 				6055C8B32D007EE8008678C1 /* WhisperManager.swift */,
@@ -110,7 +145,8 @@
 		60453EDE2DB91A2D0053859F /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				60F9E9462DBA1E7D0009B436 /* MeetingTask.swift */,
+				602A0CEB2DBBD59B003255F2 /* MeetingTaskModel.swift */,
+				60F9E9462DBA1E7D0009B436 /* MeetingTaskDTO.swift */,
 				60F34B452CF7404100A386EF /* OpenAIModels.swift */,
 			);
 			path = Models;
@@ -139,6 +175,7 @@
 			isa = PBXGroup;
 			children = (
 				60F34B412CF73CB100A386EF /* RecordVM.swift */,
+				602A0C9C2DBB8048003255F2 /* HomeVM.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -147,6 +184,7 @@
 			isa = PBXGroup;
 			children = (
 				60F34B1F2CF5F5F500A386EF /* WOAI */,
+				602A0CC42DBBBB06003255F2 /* Frameworks */,
 				60F34B1E2CF5F5F500A386EF /* Products */,
 			);
 			sourceTree = "<group>";
@@ -162,6 +200,7 @@
 		60F34B1F2CF5F5F500A386EF /* WOAI */ = {
 			isa = PBXGroup;
 			children = (
+				602A0CAE2DBB93CD003255F2 /* CoreData */,
 				60F9E94C2DBA34DE0009B436 /* TaskModel.xcdatamodeld */,
 				60566C2F2D64C10A00509D48 /* config.xcconfig */,
 				60F9E9432DB9EE7D0009B436 /* Router */,
@@ -205,12 +244,7 @@
 			);
 			name = WOAI;
 			packageProductDependencies = (
-				60F34B3A2CF6208800A386EF /* WhisperKit */,
-				60F34B3F2CF73C4E00A386EF /* OpenAI */,
-				6073D9DA2CF746CC00718DC1 /* RxCocoa */,
-				6073D9DC2CF746CC00718DC1 /* RxRelay */,
-				6055C8C22D00ADB1008678C1 /* SnapKit */,
-				6055C8C52D00ADEF008678C1 /* Then */,
+				602A0CC52DBBBB06003255F2 /* WhisperKit */,
 			);
 			productName = WOAI;
 			productReference = 60F34B1D2CF5F5F500A386EF /* WOAI.app */;
@@ -232,7 +266,6 @@
 				};
 			};
 			buildConfigurationList = 60F34B182CF5F5F500A386EF /* Build configuration list for PBXProject "WOAI" */;
-			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -241,12 +274,9 @@
 			);
 			mainGroup = 60F34B142CF5F5F500A386EF;
 			packageReferences = (
-				60F34B392CF6208800A386EF /* XCRemoteSwiftPackageReference "whisperkit" */,
-				60F34B3E2CF73C4E00A386EF /* XCRemoteSwiftPackageReference "OpenAI" */,
-				6073D9D92CF746CC00718DC1 /* XCRemoteSwiftPackageReference "RxSwift" */,
-				6055C8C12D00ADB1008678C1 /* XCRemoteSwiftPackageReference "SnapKit" */,
-				6055C8C42D00ADEF008678C1 /* XCRemoteSwiftPackageReference "Then" */,
+				602A0CC32DBBB1E8003255F2 /* XCRemoteSwiftPackageReference "whisperkit" */,
 			);
+			preferredProjectObjectVersion = 77;
 			productRefGroup = 60F34B1E2CF5F5F500A386EF /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -261,7 +291,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				60F34B3D2CF62A1300A386EF /* testAudio_0.mp3 in Resources */,
+				602A0CEE2DBBE1B5003255F2 /* testAudio_0.m4a in Resources */,
 				60F34B2A2CF5F5F800A386EF /* Assets.xcassets in Resources */,
 				60F34B2D2CF5F5F800A386EF /* Base in Resources */,
 				60F34B372CF5F76900A386EF /* audio.mp3 in Resources */,
@@ -281,17 +311,28 @@
 				60453ED82DB8F0900053859F /* SettingView.swift in Sources */,
 				60F34B252CF5F5F500A386EF /* RecordView.swift in Sources */,
 				60F34B442CF7401000A386EF /* OpenAIManager.swift in Sources */,
+				602A0CDF2DBBC072003255F2 /* IssueCoreData+CoreDataClass.swift in Sources */,
+				602A0CE02DBBC072003255F2 /* IssueCoreData+CoreDataProperties.swift in Sources */,
+				602A0CE32DBBC072003255F2 /* SchedulingTaskCoreData+CoreDataClass.swift in Sources */,
+				602A0CE42DBBC072003255F2 /* SchedulingTaskCoreData+CoreDataProperties.swift in Sources */,
+				602A0CE52DBBC072003255F2 /* TimelineCoreData+CoreDataClass.swift in Sources */,
+				602A0CE62DBBC072003255F2 /* TimelineCoreData+CoreDataProperties.swift in Sources */,
 				60F9E9452DB9EEEF0009B436 /* Router.swift in Sources */,
+				602A0C9D2DBB8048003255F2 /* HomeVM.swift in Sources */,
 				60F9E94E2DBA34DE0009B436 /* TaskModel.xcdatamodeld in Sources */,
 				60453ED62DB8F0690053859F /* HomeView.swift in Sources */,
 				60453ED22DB8EC400053859F /* WOAIApp.swift in Sources */,
 				60F34B422CF73CB100A386EF /* RecordVM.swift in Sources */,
 				60F34B462CF7404100A386EF /* OpenAIModels.swift in Sources */,
 				60F9E9492DBA27930009B436 /* JsonManager.swift in Sources */,
+				602A0CEC2DBBD59F003255F2 /* MeetingTaskModel.swift in Sources */,
 				60453EDB2DB8FC6C0053859F /* Color+.swift in Sources */,
 				60F34B212CF5F5F500A386EF /* AppDelegate.swift in Sources */,
 				6055C8B42D007EEC008678C1 /* WhisperManager.swift in Sources */,
-				60F9E9472DBA1E860009B436 /* MeetingTask.swift in Sources */,
+				602A0C9B2DBB723A003255F2 /* CoreDataManager.swift in Sources */,
+				602A0CE92DBBCCE3003255F2 /* MeetingTaskCoreData+CoreDataClass.swift in Sources */,
+				602A0CEA2DBBCCE3003255F2 /* MeetingTaskCoreData+CoreDataProperties.swift in Sources */,
+				60F9E9472DBA1E860009B436 /* MeetingTaskDTO.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -441,17 +482,19 @@
 				DEVELOPMENT_TEAM = YH4A87H8M4;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = WOAI/Info.plist;
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "WOAI 앱에서 음성 인식을 위해 마이크를 사용합니다.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.seungwan.WOAI.WOAI;
+				PRODUCT_BUNDLE_IDENTIFIER = com.seungwan.WOAI;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -470,17 +513,19 @@
 				DEVELOPMENT_TEAM = YH4A87H8M4;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = WOAI/Info.plist;
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "WOAI 앱에서 음성 인식을 위해 마이크를 사용합니다.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.seungwan.WOAI.WOAI;
+				PRODUCT_BUNDLE_IDENTIFIER = com.seungwan.WOAI;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -512,78 +557,21 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		6055C8C12D00ADB1008678C1 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 5.7.1;
-			};
-		};
-		6055C8C42D00ADEF008678C1 /* XCRemoteSwiftPackageReference "Then" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/devxoul/Then.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 3.0.0;
-			};
-		};
-		6073D9D92CF746CC00718DC1 /* XCRemoteSwiftPackageReference "RxSwift" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/ReactiveX/RxSwift.git";
-			requirement = {
-				branch = main;
-				kind = branch;
-			};
-		};
-		60F34B392CF6208800A386EF /* XCRemoteSwiftPackageReference "whisperkit" */ = {
+		602A0CC32DBBB1E8003255F2 /* XCRemoteSwiftPackageReference "whisperkit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/argmaxinc/whisperkit";
 			requirement = {
-				kind = upToNextMinorVersion;
-				minimumVersion = 0.9.0;
-			};
-		};
-		60F34B3E2CF73C4E00A386EF /* XCRemoteSwiftPackageReference "OpenAI" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/MacPaw/OpenAI.git";
-			requirement = {
-				branch = main;
-				kind = branch;
+				kind = exactVersion;
+				version = 0.12.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		6055C8C22D00ADB1008678C1 /* SnapKit */ = {
+		602A0CC52DBBBB06003255F2 /* WhisperKit */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 6055C8C12D00ADB1008678C1 /* XCRemoteSwiftPackageReference "SnapKit" */;
-			productName = SnapKit;
-		};
-		6055C8C52D00ADEF008678C1 /* Then */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 6055C8C42D00ADEF008678C1 /* XCRemoteSwiftPackageReference "Then" */;
-			productName = Then;
-		};
-		6073D9DA2CF746CC00718DC1 /* RxCocoa */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 6073D9D92CF746CC00718DC1 /* XCRemoteSwiftPackageReference "RxSwift" */;
-			productName = RxCocoa;
-		};
-		6073D9DC2CF746CC00718DC1 /* RxRelay */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 6073D9D92CF746CC00718DC1 /* XCRemoteSwiftPackageReference "RxSwift" */;
-			productName = RxRelay;
-		};
-		60F34B3A2CF6208800A386EF /* WhisperKit */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 60F34B392CF6208800A386EF /* XCRemoteSwiftPackageReference "whisperkit" */;
+			package = 602A0CC32DBBB1E8003255F2 /* XCRemoteSwiftPackageReference "whisperkit" */;
 			productName = WhisperKit;
-		};
-		60F34B3F2CF73C4E00A386EF /* OpenAI */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 60F34B3E2CF73C4E00A386EF /* XCRemoteSwiftPackageReference "OpenAI" */;
-			productName = OpenAI;
 		};
 /* End XCSwiftPackageProductDependency section */
 

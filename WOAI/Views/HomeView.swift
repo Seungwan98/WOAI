@@ -13,20 +13,8 @@ import Combine
 }
 struct HomeView: View {
     
-    struct normalMeetingModel: Identifiable {
-        let id = UUID()
-        let name: String
-        let time: String
-    }
     
-    struct currentMeetingModel: Identifiable {
-        let id = UUID()
-        let name: String
-        let date: String
-        let description: String
-        let contents: [String]
-        
-    }
+    @ObservedObject var viewModel = HomeVM()
     
     
     let itemSpacing: CGFloat = 30
@@ -35,17 +23,7 @@ struct HomeView: View {
     
     var body: some View {
         
-        let normalMeetings = [
-            normalMeetingModel(name: "product Meeting", time: "10:00"),
-            normalMeetingModel(name: "UX", time: "20:12"),
-            normalMeetingModel(name: "UI Meetup", time: "24:00")
-        ]
         
-        let meetings = [
-            currentMeetingModel(name: "제품 개발 회의", date: "2024.12.31", description: "새로운 기능 개발..", contents: ["제품","개발","일정"]),
-            currentMeetingModel(name: "제품 개발 회의", date: "2024.12.31", description: "새로운 기능 개발..", contents: ["제품","개발","일정"]),
-            currentMeetingModel(name: "제품 개발 회의", date: "2024.12.31", description: "새로운 기능 개발..", contents: ["제품","개발","일정"])
-        ]
         
         ScrollView {
             VStack(spacing: 10) {
@@ -69,11 +47,13 @@ struct HomeView: View {
                     }.padding(.bottom, 10)
                     
                     LazyVStack( spacing: 1) {
-                        ForEach(normalMeetings) { meeting in
+
+                        ForEach(viewModel.meetings) { meeting in
                             HStack {
                                 VStack(alignment: .leading, spacing: 8) {
-                                    Text(meeting.time)
-                                    Text(meeting.name)
+                                    Text(meeting.recordedAt)
+                                    Text(meeting.meetingTitle)
+                            
                                 }.frame(maxWidth: .infinity, alignment: .leading).padding()
                                 Spacer()
                                 Button("보기 >") {
@@ -96,21 +76,22 @@ struct HomeView: View {
                     }.padding(.bottom, 10)
                     
                     LazyVStack( spacing: 4) {
-                        ForEach(meetings) { meeting in
+                        ForEach(viewModel.meetings) { meeting in
                             VStack(alignment: .leading, spacing: 0) {
                                 HStack {
-                                    Text(meeting.name)
+                                    Text(meeting.meetingTitle)
                                     Spacer()
-                                    Text(meeting.date)
+                                    Text(meeting.recordedAt)
                                     
                                 }.padding()
-                                Text(meeting.description).padding(.leading)
+                           
+                                Text(meeting.meetingSummary).padding(.leading)
 
                                 HStack {
-                                    ForEach(meeting.contents, id: \.self) { content in
-                                        Text("\(content)").padding(8).background(Color.green.opacity(0.2))
-                                            .cornerRadius(8)
-                                    }
+//                                    ForEach(meeting.contents) { content in
+//                                        Text("\(content)").padding(8).background(Color.green.opacity(0.2))
+//                                            .cornerRadius(8)
+//                                    }
                                 }.padding()
                                 
                             }.frame(maxWidth: .infinity, alignment: .leading)
@@ -123,6 +104,9 @@ struct HomeView: View {
                 
             }.padding(.horizontal, itemSpacing)
             
+        }.onAppear {
+            viewModel.onAppear()
+
         }
     }
 }

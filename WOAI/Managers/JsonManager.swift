@@ -13,13 +13,13 @@ class JsonManager {
     
     private init() {}
     
-    func getJson(_ text: String) async throws -> MeetingTask {
+    func getJson(_ text: String) async throws -> MeetingTaskDTO {
         guard let data = text.data(using: .utf8) else {
             throw JsonError.invalidData
         }
 
         do {
-            let meeting = try JSONDecoder().decode(MeetingTask.self, from: data)
+            let meeting = try JSONDecoder().decode(MeetingTaskDTO.self, from: data)
             return meeting
         } catch {
             throw JsonError.decodingFailed(error)
