@@ -6,10 +6,10 @@
 //
 import Foundation
 extension DateFormatter {
-    func getUntilMinutes(inputDate: Date) -> String {
+    func getOnlyTimes(inputDate: Date) -> String {
 
         let inputFormatter = DateFormatter()
-        inputFormatter.dateFormat = "yyyy-MM-dd HH:mm"
+        inputFormatter.dateFormat = "HH:mm"
         inputFormatter.locale = Locale(identifier: "ko_KR") // 지역화 설정 (한국)
         inputFormatter.timeZone = TimeZone(identifier: "Asia/Seoul") // 타임존 설정 (서울)
 

@@ -61,12 +61,12 @@ class HomeVM: ObservableObject {
         var finishDateTime = ""
         if let startRecorded {
             startDateDays = dateFormatter.getUntilDays(inputDate: startRecorded)
-            startDateTime = dateFormatter.getUntilMinutes(inputDate: startRecorded)
+            startDateTime = dateFormatter.getOnlyTimes(inputDate: startRecorded)
         }
       
         if let finishRecorded {
             finishDateDays = dateFormatter.getUntilDays(inputDate: finishRecorded)
-            finishDateTime = dateFormatter.getUntilMinutes(inputDate: finishRecorded)
+            finishDateTime = dateFormatter.getOnlyTimes(inputDate: finishRecorded)
         }
 
         return (startDateDays, startDateTime, finishDateDays, finishDateTime)

@@ -8,6 +8,15 @@
 import SwiftUI
 
 extension Color {
+    
+      static var mainColor: Color {
+          return Color(hex: "#1D3557")!
+      }
+    
+
+      static var mainBackground: Color {
+          return Color.gray.opacity(0.1)
+      }
 
     
     init?(hex: String) {
