@@ -22,6 +22,8 @@ extension MeetingTaskCoreData {
     @NSManaged public var issues: NSSet?
     @NSManaged public var schedulingTasks: NSSet?
     @NSManaged public var timeline: NSSet?
+    @NSManaged public var startRecorded: Date?
+    @NSManaged public var finishRecorded: Date?
 
 }
 

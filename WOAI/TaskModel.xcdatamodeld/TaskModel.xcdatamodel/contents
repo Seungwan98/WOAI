@@ -7,9 +7,11 @@
         <relationship name="meetingTask" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="MeetingTaskCoreData" inverseName="issues" inverseEntity="MeetingTaskCoreData"/>
     </entity>
     <entity name="MeetingTaskCoreData" representedClassName=".MeetingTaskCoreData" syncable="YES">
+        <attribute name="finishRecorded" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="meetingSummary" optional="YES" attributeType="String"/>
         <attribute name="meetingTitle" optional="YES" attributeType="String"/>
         <attribute name="recordedAt" optional="YES" attributeType="String"/>
+        <attribute name="startRecorded" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <relationship name="issues" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="IssueCoreData" inverseName="meetingTask" inverseEntity="IssueCoreData"/>
         <relationship name="schedulingTasks" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="SchedulingTaskCoreData" inverseName="meetingTask" inverseEntity="SchedulingTaskCoreData"/>
         <relationship name="timeline" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="TimelineCoreData" inverseName="meetingTask" inverseEntity="TimelineCoreData"/>

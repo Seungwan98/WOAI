@@ -30,7 +30,7 @@ struct RecordView: View {
             }
             .padding(.horizontal, 20)
             .frame(maxHeight: .infinity)
-        }
+        }.background(Color.white)
         .padding(.bottom, 20)
         .onAppear {
             // viewModel에서 초기 데이터 로딩 필요 시

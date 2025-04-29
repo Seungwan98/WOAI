@@ -12,7 +12,6 @@ class HomeVM: ObservableObject {
         let fetchRequest = MeetingTaskCoreData.fetchRequest()
         
         do {
-            
             let allMeetings = try context.fetch(fetchRequest)
             
             let newMeeting = allMeetings.map {
@@ -35,9 +34,13 @@ class HomeVM: ObservableObject {
                         schedulingTaskModels.append(SchedulingTask(subject: s.subject ?? "", date: s.date ?? "", time: s.time ?? "", participants: s.participants ?? []))
                     }
                 }
+            
+                
+
+                let getterDates = getDateFormatted(startRecorded: $0.startRecorded, finishRecorded: $0.finishRecorded)
                 
                 
-                return MeetingTaskModel(meetingTitle: $0.meetingTitle ?? "", meetingSummary: $0.meetingSummary ?? "", recordedAt: $0.recordedAt ?? "", issues: issueModels, timeline: timelineModels, schedulingTasks: schedulingTaskModels )
+                return MeetingTaskModel(meetingTitle: $0.meetingTitle ?? "", meetingSummary: $0.meetingSummary ?? "", recordedAt: $0.recordedAt ?? "", issues: issueModels, timeline: timelineModels, schedulingTasks: schedulingTaskModels, dates: getterDates )
             }
             
             self.meetings = newMeeting
@@ -48,6 +51,25 @@ class HomeVM: ObservableObject {
             
             
         }
+    }
+    
+    func getDateFormatted(startRecorded: Date?, finishRecorded: Date?) -> (String,String,String,String) {
+        let dateFormatter = DateFormatter()
+        var startDateDays = ""
+        var startDateTime = ""
+        var finishDateDays = ""
+        var finishDateTime = ""
+        if let startRecorded {
+            startDateDays = dateFormatter.getUntilDays(inputDate: startRecorded)
+            startDateTime = dateFormatter.getUntilMinutes(inputDate: startRecorded)
+        }
+      
+        if let finishRecorded {
+            finishDateDays = dateFormatter.getUntilDays(inputDate: finishRecorded)
+            finishDateTime = dateFormatter.getUntilMinutes(inputDate: finishRecorded)
+        }
+
+        return (startDateDays, startDateTime, finishDateDays, finishDateTime)
     }
     
     

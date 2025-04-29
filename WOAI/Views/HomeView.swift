@@ -9,13 +9,12 @@ import SwiftUI
 import Combine
 
 #Preview {
-    MainView()
+    MainView().environmentObject(AppRouter())
 }
 struct HomeView: View {
     
-    
-    @ObservedObject var viewModel = HomeVM()
-    
+    @ObservedObject var viewModel: HomeVM
+    @EnvironmentObject var router: AppRouter
     
     let itemSpacing: CGFloat = 30
     let mainColor: Color = Color(hex: "#1D3557")!
@@ -29,7 +28,8 @@ struct HomeView: View {
             VStack(spacing: 10) {
                 
                 Button("+ 새 회의 시작") {
-                    print("tapp")
+                    router.push(.record)
+                    
                 }.font(.system(size: 20, weight: .bold))
                     .foregroundColor(.white)
                     .frame(maxWidth: .infinity)
@@ -52,7 +52,7 @@ struct HomeView: View {
                             HStack {
                                 VStack(alignment: .leading, spacing: 8) {
                                     Text(meeting.recordedAt)
-                                    Text(meeting.meetingTitle)
+                                    Text(meeting.startDateTime)
                             
                                 }.frame(maxWidth: .infinity, alignment: .leading).padding()
                                 Spacer()
@@ -81,13 +81,14 @@ struct HomeView: View {
                                 HStack {
                                     Text(meeting.meetingTitle)
                                     Spacer()
-                                    Text(meeting.recordedAt)
+                                    Text(meeting.startDateDays)
                                     
                                 }.padding()
                            
                                 Text(meeting.meetingSummary).padding(.leading)
 
                                 HStack {
+                                    //TODO: 세부 정보 타이틀
 //                                    ForEach(meeting.contents) { content in
 //                                        Text("\(content)").padding(8).background(Color.green.opacity(0.2))
 //                                            .cornerRadius(8)

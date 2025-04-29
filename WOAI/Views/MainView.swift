@@ -15,11 +15,11 @@ import Combine
 
 
 struct MainView: View {
-    @StateObject private var router = AppRouter()
-    
+    @EnvironmentObject var router: AppRouter
+
     var body: some View {
         TabView(selection: $router.selectedTab) {
-            HomeView()
+            HomeView(viewModel: HomeVM())
                 .tag(AppRouter.Tab.home)
                 .tabItem { Label("Home", systemImage: "house") }
             RecordView()

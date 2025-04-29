@@ -11,6 +11,8 @@ class RecordVM: ObservableObject {
     private let audioSession = AVAudioSession.sharedInstance()
     private var recordingFileURL: URL?
     private var fileName: String = ""
+    private var startRecorded: Date? = nil
+    private var finishRecorded: Date? = nil
     
     private let openAIManager: OpenAiManagerProtocol
     private let whisperManager: WhisperManager
@@ -39,6 +41,7 @@ class RecordVM: ObservableObject {
     private func startRecording() {
         isRecording = true
         labelText = "\n녹음중..."
+        startRecorded = .now
         
         fileName = "recording_\(UUID().uuidString).m4a"
         let fileURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!.appendingPathComponent(fileName)
@@ -63,6 +66,7 @@ class RecordVM: ObservableObject {
         isRecording = false
         labelText = "\n분석중..."
         audioRecorder?.stop()
+        finishRecorded = .now
         
         
         //        if let url = recordingFileURL {
@@ -92,28 +96,27 @@ class RecordVM: ObservableObject {
                         newMeeting.meetingTitle = message.meetingTitle
                         newMeeting.meetingSummary = message.meetingSummary
                         newMeeting.recordedAt = message.recordedAt
+                        newMeeting.startRecorded = self.startRecorded
+                        newMeeting.finishRecorded = self.finishRecorded
                         
-                        let issuesCoreData = message.issues.map {
+                        _ = message.issues.map {
                             let newIssue = IssueCoreData(context: viewContext)
                             newIssue.actionItems = $0.actionItems
                             newIssue.details = $0.details
                             newIssue.issueName = $0.issueName
-                            print("newIssue \($0)")
 
                             newMeeting.addToIssues(newIssue)
-
                             return newIssue
                         }
-                        let timelineCoreData = message.timeline.map {
+                        _ = message.timeline.map {
                             let newTimeline = TimelineCoreData(context: viewContext)
                             newTimeline.discussion = $0.discussion
                             newTimeline.time = $0.time
                             newMeeting.addToTimeline(newTimeline)
-                            print("newTimeline \($0)")
 
                             return newTimeline
                         }
-                        let schedulingTaskCoreData = message.schedulingTasks.map {
+                        _ = message.schedulingTasks.map {
                             let newSchedulingTask = SchedulingTaskCoreData(context: viewContext)
                             newSchedulingTask.date = $0.date
                             newSchedulingTask.participants = $0.participants
@@ -121,7 +124,6 @@ class RecordVM: ObservableObject {
                             newSchedulingTask.time = $0.time
                             newMeeting.addToSchedulingTasks(newSchedulingTask)
 
-                            print("newSchedulingTask \($0)")
                             return newSchedulingTask
                         }
 

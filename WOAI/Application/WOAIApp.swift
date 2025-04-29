@@ -10,6 +10,7 @@ import SwiftUI
 @main
 struct WOAIApp: App {
     @StateObject private var router = AppRouter()
+    @StateObject private var homeVM = HomeVM()
 
     var body: some Scene {
         WindowGroup {
@@ -17,7 +18,7 @@ struct WOAIApp: App {
                 MainView().navigationDestination(for: SomeRoute.self) { route in
                     switch route {
                     case .home:
-                        HomeView()
+                        HomeView(viewModel: homeVM)
                     case .record:
                         RecordView()
                     case .settings:

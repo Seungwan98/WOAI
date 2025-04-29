@@ -28,6 +28,7 @@
 		6055C8B42D007EEC008678C1 /* WhisperManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6055C8B32D007EE8008678C1 /* WhisperManager.swift */; };
 		6055C8C02D00A550008678C1 /* testing.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 6055C8BF2D00A550008678C1 /* testing.m4a */; };
 		60566C302D64C11000509D48 /* config.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 60566C2F2D64C10A00509D48 /* config.xcconfig */; };
+		606851FF2DC0B9F500889B1E /* DateFormatter+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 606851FE2DC0B9ED00889B1E /* DateFormatter+.swift */; };
 		60F34B212CF5F5F500A386EF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F34B202CF5F5F500A386EF /* AppDelegate.swift */; };
 		60F34B252CF5F5F500A386EF /* RecordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F34B242CF5F5F500A386EF /* RecordView.swift */; };
 		60F34B2A2CF5F5F800A386EF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 60F34B292CF5F5F800A386EF /* Assets.xcassets */; };
@@ -63,6 +64,7 @@
 		6055C8B32D007EE8008678C1 /* WhisperManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhisperManager.swift; sourceTree = "<group>"; };
 		6055C8BF2D00A550008678C1 /* testing.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = testing.m4a; sourceTree = "<group>"; };
 		60566C2F2D64C10A00509D48 /* config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = config.xcconfig; sourceTree = "<group>"; };
+		606851FE2DC0B9ED00889B1E /* DateFormatter+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateFormatter+.swift"; sourceTree = "<group>"; };
 		60F34B1D2CF5F5F500A386EF /* WOAI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WOAI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		60F34B202CF5F5F500A386EF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		60F34B242CF5F5F500A386EF /* RecordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordView.swift; sourceTree = "<group>"; };
@@ -116,6 +118,7 @@
 		60453ED92DB8FC5D0053859F /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				606851FE2DC0B9ED00889B1E /* DateFormatter+.swift */,
 				60453EDA2DB8FC680053859F /* Color+.swift */,
 			);
 			path = Extension;
@@ -307,6 +310,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				606851FF2DC0B9F500889B1E /* DateFormatter+.swift in Sources */,
 				60453ED42DB8EF620053859F /* MainView.swift in Sources */,
 				60453ED82DB8F0900053859F /* SettingView.swift in Sources */,
 				60F34B252CF5F5F500A386EF /* RecordView.swift in Sources */,
