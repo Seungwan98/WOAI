@@ -29,7 +29,7 @@ class AppRouter: ObservableObject {
 extension AppRouter {
     
     enum Tab {
-        case home, record, settings
+        case home, recordNote, settings
     }
     
     func popTo(_ target: SomeRoute) {
@@ -53,7 +53,8 @@ extension AppRouter {
 }
 enum SomeRoute: Hashable {
     case home
-    case record
+    case recording
+    case rocrdNote
     case settings
 }
 

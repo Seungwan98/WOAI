@@ -2,7 +2,7 @@ import Foundation
 import Combine
 import AVFAudio
 
-class RecordVM: ObservableObject {
+class RecordingVM: ObservableObject {
     @Published var labelText: String = ""
     @Published var isRecording: Bool = false
     @Published var members: [String] = []
@@ -14,6 +14,7 @@ class RecordVM: ObservableObject {
     private var startRecorded: Date? = nil
     private var finishRecorded: Date? = nil
     
+    private let dateFormatter = DateFormatter()
     private let openAIManager: OpenAiManagerProtocol
     private let whisperManager: WhisperManager
     
@@ -43,9 +44,18 @@ class RecordVM: ObservableObject {
         labelText = "\n녹음중..."
         startRecorded = .now
         
-        fileName = "recording_\(UUID().uuidString).m4a"
-        let fileURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!.appendingPathComponent(fileName)
-        recordingFileURL = fileURL
+        fileName = "recording_\(dateFormatter.string(from: startRecorded!)).m4a"
+
+        
+        let folderURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!.appendingPathComponent("WOAIRecords")
+        
+            // 폴더 없으면 생성
+        if !FileManager.default.fileExists(atPath: folderURL.path) {
+               try? FileManager.default.createDirectory(at: folderURL, withIntermediateDirectories: true)
+           }
+
+        let fileURL = folderURL.appendingPathComponent(fileName)
+        
         
         let settings: [String: Any] = [
             AVFormatIDKey: Int(kAudioFormatMPEG4AAC),
@@ -167,6 +177,15 @@ class RecordVM: ObservableObject {
             
         } catch {
             print("🎧 오디오 세션 설정 실패: \(error)")
+        }
+    }
+    
+    func onAppear() {
+        self.startRecording()
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 10) {
+            self.stopRecording()
+
         }
     }
 }

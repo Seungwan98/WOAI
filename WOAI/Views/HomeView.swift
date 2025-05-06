@@ -25,7 +25,7 @@ struct HomeView: View {
             VStack(spacing: 10) {
                 
                 Button("+ 새 회의 시작") {
-                    router.push(.record)
+                    router.push(.recording)
                     
                 }.font(.system(size: 20, weight: .bold))
                     .foregroundColor(.white)

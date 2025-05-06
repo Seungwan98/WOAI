@@ -22,8 +22,8 @@ struct MainView: View {
             HomeView(viewModel: HomeVM())
                 .tag(AppRouter.Tab.home)
                 .tabItem { Label("Home", systemImage: "house") }
-            RecordView()
-                .tag(AppRouter.Tab.record)
+            RecordNoteView()
+                .tag(AppRouter.Tab.recordNote)
                 .tabItem { Label("Record", systemImage: "microphone") }
             SettingView()
                 .tag(AppRouter.Tab.settings)

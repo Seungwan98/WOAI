@@ -19,10 +19,12 @@ struct WOAIApp: App {
                     switch route {
                     case .home:
                         HomeView(viewModel: homeVM)
-                    case .record:
-                        RecordView()
+                    case .recording:
+                        RecordingView()
                     case .settings:
                         SettingView()
+                    case .rocrdNote:
+                        RecordNoteView()
                     }
                 }
             }

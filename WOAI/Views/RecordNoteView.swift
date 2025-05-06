@@ -3,10 +3,11 @@ import AVFAudio
 import Combine
 
 #Preview {
-    RecordView()
+    RecordNoteView()
 }
-struct RecordView: View {
-    @StateObject private var viewModel = RecordVM()
+struct RecordNoteView: View {
+    @StateObject private var viewModel = RecordNoteVM()
+    @EnvironmentObject var router: AppRouter
 
     var body: some View {
         VStack(spacing: 20) {
@@ -14,16 +15,15 @@ struct RecordView: View {
                 
             HStack {
                 Button(action: {
-                    viewModel.toggleRecording()
+                    router.push(.recording)
                 }) {
                     VStack {
                         Image(systemName: "microphone.fill").resizable().scaledToFill().frame(width: 30, height: 30).foregroundStyle(Color.mainColor)
                         Spacer().frame(height: 20)
                         
-                        Text(viewModel.isRecording ? "stop" : "record")
+                        Text("record")
                             .foregroundColor(.mainColor)
                     }
-                    
                        
                 }.frame(maxWidth: .infinity, minHeight: 200)
                     .background(Color.white)
@@ -32,7 +32,6 @@ struct RecordView: View {
                 Spacer().frame(width: 10)
                 
                 Button(action: {
-                    
                     // 파일 업로드 버튼
                 }) {
                     
@@ -42,9 +41,6 @@ struct RecordView: View {
                         Spacer().frame(height: 20)
                         Text("File Upload").foregroundStyle(Color.mainColor)
                     }
-            
-    
-
                     
                 }.frame(maxWidth: .infinity, minHeight: 200)
                     .background(Color.white)
@@ -58,18 +54,29 @@ struct RecordView: View {
             }.padding(.horizontal, 40)
        
             
-            ScrollView {
-                Text(viewModel.labelText)
-                    .multilineTextAlignment(.center)
-                    .padding()
-                    .frame(maxWidth: .infinity)
-            }
-            .padding(.horizontal, 20)
-            .frame(maxHeight: .infinity)
+            List {
+                ForEach(viewModel.recordedList, id: \.self) { fileName in
+                    
+                    HStack {
+                        VStack(alignment: .leading) {
+                            Text("\(fileName)")
+                            Text("10:30:25")
+                            
+                        }
+                        Spacer()
+                        Image(systemName: "headphones").resizable().scaledToFill().frame(width: 15, height: 10).foregroundStyle(Color.mainColor)
+                        Spacer().frame(width: 10)
+                        
+                        Image(systemName: "trash").resizable().scaledToFill().frame(width: 15, height: 10).foregroundStyle(Color.red)
+                        
+                        
+                    }
+                }
+                
+            }.padding(.horizontal, 20)
         }.background(Color.mainBackground)
-        .padding(.bottom, 20)
         .onAppear {
-            // viewModel에서 초기 데이터 로딩 필요 시
+            viewModel.onAppear()
         }
     }
 }
