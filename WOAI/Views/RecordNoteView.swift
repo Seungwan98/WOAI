@@ -73,7 +73,7 @@ struct RecordNoteView: View {
                     }
                 }
                 
-            }.padding(.horizontal, 20)
+            }.listStyle(.plain).padding(.horizontal, 20).background(Color.mainBackground)
         }.background(Color.mainBackground)
         .onAppear {
             viewModel.onAppear()
