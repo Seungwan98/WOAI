@@ -44,7 +44,7 @@ class RecordingVM: ObservableObject {
         labelText = "\n녹음중..."
         startRecorded = .now
         
-        fileName = "recording_\(dateFormatter.string(from: startRecorded!)).m4a"
+        fileName = "recording_\(TimeManager.shared.getUntilDays(inputDate: startRecorded!) + " " + TimeManager.shared.getOnlyTimes(inputDate: startRecorded!)).m4a"
 
         
         let folderURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!.appendingPathComponent("WOAIRecords")

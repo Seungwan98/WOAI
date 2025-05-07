@@ -5,6 +5,10 @@ import Combine
 class HomeVM: ObservableObject {
     
     @Published var meetings: [MeetingTaskModel] = []
+    @Published var todaysMeetings: [MeetingTaskModel] = []
+    
+    private let dateFormatter = DateFormatter()
+
     
     func onAppear() {
         let context = CoreDataManager.shared.container.viewContext
@@ -43,6 +47,23 @@ class HomeVM: ObservableObject {
                 return MeetingTaskModel(meetingTitle: $0.meetingTitle ?? "", meetingSummary: $0.meetingSummary ?? "", recordedAt: $0.recordedAt ?? "", issues: issueModels, timeline: timelineModels, schedulingTasks: schedulingTaskModels, dates: getterDates )
             }
             
+            let calendar = Calendar.current
+
+          
+
+            // 오늘 날짜만 남기기
+            self.todaysMeetings = newMeeting.filter { meet in
+                
+                if let day = TimeManager.shared.getUntilDaysDate(inputDate: meet.startDateDays) {
+                    return  calendar.isDate(.now, inSameDayAs: day )
+
+                } else {
+                    return false
+                }
+                
+                
+            }
+            
             self.meetings = newMeeting
             
             
@@ -54,19 +75,18 @@ class HomeVM: ObservableObject {
     }
     
     func getDateFormatted(startRecorded: Date?, finishRecorded: Date?) -> (String,String,String,String) {
-        let dateFormatter = DateFormatter()
         var startDateDays = ""
         var startDateTime = ""
         var finishDateDays = ""
         var finishDateTime = ""
         if let startRecorded {
-            startDateDays = dateFormatter.getUntilDays(inputDate: startRecorded)
-            startDateTime = dateFormatter.getOnlyTimes(inputDate: startRecorded)
+            startDateDays = TimeManager.shared.getUntilDays(inputDate: startRecorded)
+            startDateTime = TimeManager.shared.getOnlyTimes(inputDate: startRecorded)
         }
       
         if let finishRecorded {
-            finishDateDays = dateFormatter.getUntilDays(inputDate: finishRecorded)
-            finishDateTime = dateFormatter.getOnlyTimes(inputDate: finishRecorded)
+            finishDateDays = TimeManager.shared.getUntilDays(inputDate: finishRecorded)
+            finishDateTime = TimeManager.shared.getOnlyTimes(inputDate: finishRecorded)
         }
 
         return (startDateDays, startDateTime, finishDateDays, finishDateTime)

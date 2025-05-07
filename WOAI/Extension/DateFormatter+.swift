@@ -5,28 +5,38 @@
 //  Created by 양승완 on 4/29/25.
 //
 import Foundation
-extension DateFormatter {
+class TimeManager {
+    
+    
+    static let shared = TimeManager()
+    
+    private init() {}
+
+    let inputFormatter: DateFormatter = {
+        let dateFormatter = DateFormatter()
+        dateFormatter.locale = Locale(identifier: "ko_KR")
+        dateFormatter.timeZone = TimeZone(identifier: "Asia/Seoul") // 타임존 설정 (서울)
+        return dateFormatter
+    }()
+    
     func getOnlyTimes(inputDate: Date) -> String {
-
-        let inputFormatter = DateFormatter()
         inputFormatter.dateFormat = "HH:mm"
-        inputFormatter.locale = Locale(identifier: "ko_KR") // 지역화 설정 (한국)
-        inputFormatter.timeZone = TimeZone(identifier: "Asia/Seoul") // 타임존 설정 (서울)
-
         return inputFormatter.string(from: inputDate)
         
     }
     
     func getUntilDays(inputDate: Date) -> String {
-
-        let inputFormatter = DateFormatter()
         inputFormatter.dateFormat = "yyyy-MM-dd"
-        inputFormatter.locale = Locale(identifier: "ko_KR") // 지역화 설정 (한국)
-        inputFormatter.timeZone = TimeZone(identifier: "Asia/Seoul") // 타임존 설정 (서울)
-
         return inputFormatter.string(from: inputDate)
+    }
+    
+    func getUntilDaysDate(inputDate: String) -> Date? {
+        inputFormatter.dateFormat = "yyyy-MM-dd"
+        return inputFormatter.date(from: inputDate)
         
     }
+    
+    
         
     
 }
