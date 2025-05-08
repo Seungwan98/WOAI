@@ -13,6 +13,7 @@ struct RecordedModel: Identifiable, Hashable {
     var id: String {name}
     let loadingTime: String
     let name: String
+    let url: URL
     
 }
 
@@ -24,7 +25,7 @@ class RecordNoteVM: ObservableObject {
     func onAppear() {
         let files = (try? FileManager.default.contentsOfDirectory(at: FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!.appendingPathComponent("WOAIRecords"), includingPropertiesForKeys: nil)) ?? []
 
-        Task {
+        Task { @MainActor in
             // .hasPrefix -> 포함되어있으면 true
             self.recordedList = await withTaskGroup(of: RecordedModel.self) { group in
                 for file in files where file.lastPathComponent.hasPrefix("recording_") && file.pathExtension == "m4a" {
@@ -65,6 +66,6 @@ class RecordNoteVM: ObservableObject {
         let fileName = url.lastPathComponent
         
             let duration = await getDurationString(from: url)
-            return RecordedModel(loadingTime: duration, name: fileName)
+        return RecordedModel(loadingTime: duration, name: fileName, url: url)
     }
 }

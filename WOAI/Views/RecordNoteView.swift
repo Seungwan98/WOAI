@@ -54,30 +54,34 @@ struct RecordNoteView: View {
             HStack {
                 Text("녹음 목록").font(.system(size: 30, weight: .bold)).foregroundStyle(Color.mainColor)
                 Spacer()
-            }.padding(.horizontal, 40)
+            }.padding(.horizontal, 20)
        
             
             List {
                 ForEach(viewModel.recordedList) { model in
-                    
-                    VStack {
-                        HStack {
-                            
-                            VStack(alignment: .leading) {
-                                Text("\(model.name)")
-                                Text("\(model.loadingTime)")
+                    Button(action: {
+                        print("")
+                    }) {
+                        VStack {
+                            HStack {
+                                
+                                VStack(alignment: .leading) {
+                                    Text("\(model.name)").lineLimit(1)
+                                    Text("\(model.loadingTime)").lineLimit(1)
+                                    
+                                }
+                                Spacer()
+//                                Image(systemName: "headphones").resizable().scaledToFill().frame(width: 15, height: 10).foregroundStyle(Color.mainColor)
+//                                Spacer().frame(width: 10)
+                                
+                                Image(systemName: "trash").resizable().scaledToFill().frame(width: 15, height: 10).foregroundStyle(Color.red)
+                                
                                 
                             }
-                            Spacer()
-                            Image(systemName: "headphones").resizable().scaledToFill().frame(width: 15, height: 10).foregroundStyle(Color.mainColor)
-                            Spacer().frame(width: 10)
-                            
-                            Image(systemName: "trash").resizable().scaledToFill().frame(width: 15, height: 10).foregroundStyle(Color.red)
-                            
-                            
-                        }
 
+                        }
                     }
+                 
                   
                 }
                 

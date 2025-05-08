@@ -95,6 +95,9 @@ class RecordingVM: ObservableObject {
         Task {
             do {
                 let text = try await whisperManager.transcribeAudio(at: url)
+                
+                print("return Whisper \(text)")
+                
                 openAIManager.appendMeetingMembers(members: members)
                 let meetingTask = try await openAIManager.sendMessageStream(text: text)
                 

@@ -1,0 +1,15 @@
+//
+//  Localizable.strings
+//  WOAI
+//
+//  Created by 양승완 on 5/8/25.
+//
+
+"home" = "Home";
+"start_new_meeting" = "Start New Meeting";
+"today_meeting" = "Today's Meeting";
+"recent_meeting_record" = "Recent Meeting Records";
+"general" = "General";
+"language_setting" = "Language Setting";
+"recording_list" = "Recording List";
+"whisper_language" = "en";
