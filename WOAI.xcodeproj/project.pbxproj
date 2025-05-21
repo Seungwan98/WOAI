@@ -20,6 +20,14 @@
 		602A0CEA2DBBCCE3003255F2 /* MeetingTaskCoreData+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 602A0CE82DBBCCE3003255F2 /* MeetingTaskCoreData+CoreDataProperties.swift */; };
 		602A0CEC2DBBD59F003255F2 /* MeetingTaskModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 602A0CEB2DBBD59B003255F2 /* MeetingTaskModel.swift */; };
 		602A0CEE2DBBE1B5003255F2 /* testAudio_0.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 602A0CED2DBBE1B5003255F2 /* testAudio_0.m4a */; };
+		603F493C2DDDC71E00B89E6A /* RecordNoteBottomListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 603F493B2DDDC71E00B89E6A /* RecordNoteBottomListView.swift */; };
+		603F49412DDDC7CD00B89E6A /* RecordNoteTopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 603F49402DDDC7CD00B89E6A /* RecordNoteTopView.swift */; };
+		603F49CC2DDDD10E00B89E6A /* HomeBottomListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 603F49CB2DDDD10E00B89E6A /* HomeBottomListView.swift */; };
+		603F49CF2DDDD19800B89E6A /* HomeTopListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 603F49CE2DDDD19800B89E6A /* HomeTopListView.swift */; };
+		603F49D22DDE11A800B89E6A /* DetailInformView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 603F49D12DDE11A800B89E6A /* DetailInformView.swift */; };
+		603F49D42DDE15F600B89E6A /* DetailInformTopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 603F49D32DDE15F600B89E6A /* DetailInformTopView.swift */; };
+		603F49D62DDE162A00B89E6A /* DetailInformCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 603F49D52DDE162A00B89E6A /* DetailInformCenter.swift */; };
+		603F49D82DDE174700B89E6A /* DetailInformVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 603F49D72DDE174700B89E6A /* DetailInformVM.swift */; };
 		60453ED22DB8EC400053859F /* WOAIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60453ED12DB8EC350053859F /* WOAIApp.swift */; };
 		60453ED42DB8EF620053859F /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60453ED32DB8EF590053859F /* MainView.swift */; };
 		60453ED62DB8F0690053859F /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60453ED52DB8F0680053859F /* HomeView.swift */; };
@@ -32,11 +40,11 @@
 		606852022DCA5E4900889B1E /* RecordNoteVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 606852012DCA5E4600889B1E /* RecordNoteVM.swift */; };
 		606852042DCA682500889B1E /* RecordingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 606852032DCA682100889B1E /* RecordingView.swift */; };
 		60E5C6C62DCC4A7B00635390 /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60E5C6C52DCC4A7600635390 /* String+.swift */; };
+		60E5C6C82DCC599B00635390 /* Chapter04_01.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 60E5C6C72DCC599B00635390 /* Chapter04_01.mp3 */; };
 		60F34B212CF5F5F500A386EF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F34B202CF5F5F500A386EF /* AppDelegate.swift */; };
 		60F34B252CF5F5F500A386EF /* RecordNoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F34B242CF5F5F500A386EF /* RecordNoteView.swift */; };
 		60F34B2A2CF5F5F800A386EF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 60F34B292CF5F5F800A386EF /* Assets.xcassets */; };
 		60F34B2D2CF5F5F800A386EF /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 60F34B2C2CF5F5F800A386EF /* Base */; };
-		60F34B372CF5F76900A386EF /* audio.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 60F34B362CF5F76900A386EF /* audio.mp3 */; };
 		60F34B422CF73CB100A386EF /* RecordingVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F34B412CF73CB100A386EF /* RecordingVM.swift */; };
 		60F34B442CF7401000A386EF /* OpenAIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F34B432CF7401000A386EF /* OpenAIManager.swift */; };
 		60F34B462CF7404100A386EF /* OpenAIModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F34B452CF7404100A386EF /* OpenAIModels.swift */; };
@@ -59,6 +67,14 @@
 		602A0CE82DBBCCE3003255F2 /* MeetingTaskCoreData+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MeetingTaskCoreData+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		602A0CEB2DBBD59B003255F2 /* MeetingTaskModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingTaskModel.swift; sourceTree = "<group>"; };
 		602A0CED2DBBE1B5003255F2 /* testAudio_0.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = testAudio_0.m4a; sourceTree = "<group>"; };
+		603F493B2DDDC71E00B89E6A /* RecordNoteBottomListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordNoteBottomListView.swift; sourceTree = "<group>"; };
+		603F49402DDDC7CD00B89E6A /* RecordNoteTopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordNoteTopView.swift; sourceTree = "<group>"; };
+		603F49CB2DDDD10E00B89E6A /* HomeBottomListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeBottomListView.swift; sourceTree = "<group>"; };
+		603F49CE2DDDD19800B89E6A /* HomeTopListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTopListView.swift; sourceTree = "<group>"; };
+		603F49D12DDE11A800B89E6A /* DetailInformView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailInformView.swift; sourceTree = "<group>"; };
+		603F49D32DDE15F600B89E6A /* DetailInformTopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailInformTopView.swift; sourceTree = "<group>"; };
+		603F49D52DDE162A00B89E6A /* DetailInformCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailInformCenter.swift; sourceTree = "<group>"; };
+		603F49D72DDE174700B89E6A /* DetailInformVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailInformVM.swift; sourceTree = "<group>"; };
 		60453ED12DB8EC350053859F /* WOAIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WOAIApp.swift; sourceTree = "<group>"; };
 		60453ED32DB8EF590053859F /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		60453ED52DB8F0680053859F /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -74,13 +90,13 @@
 		60E5C6BF2DCC498600635390 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = "ko.lproj/Localizable(ko).strings"; sourceTree = "<group>"; };
 		60E5C6C42DCC49A300635390 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = "en.lproj/Localizable(en).strings"; sourceTree = "<group>"; };
 		60E5C6C52DCC4A7600635390 /* String+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
+		60E5C6C72DCC599B00635390 /* Chapter04_01.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Chapter04_01.mp3; sourceTree = "<group>"; };
 		60F34B1D2CF5F5F500A386EF /* WOAI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WOAI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		60F34B202CF5F5F500A386EF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		60F34B242CF5F5F500A386EF /* RecordNoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordNoteView.swift; sourceTree = "<group>"; };
 		60F34B292CF5F5F800A386EF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		60F34B2C2CF5F5F800A386EF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		60F34B2E2CF5F5F800A386EF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		60F34B362CF5F76900A386EF /* audio.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = audio.mp3; sourceTree = "<group>"; };
 		60F34B412CF73CB100A386EF /* RecordingVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingVM.swift; sourceTree = "<group>"; };
 		60F34B432CF7401000A386EF /* OpenAIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenAIManager.swift; sourceTree = "<group>"; };
 		60F34B452CF7404100A386EF /* OpenAIModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenAIModels.swift; sourceTree = "<group>"; };
@@ -124,6 +140,52 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		603F493D2DDDC72300B89E6A /* RecordNoteView */ = {
+			isa = PBXGroup;
+			children = (
+				60F34B242CF5F5F500A386EF /* RecordNoteView.swift */,
+				603F49402DDDC7CD00B89E6A /* RecordNoteTopView.swift */,
+				603F493B2DDDC71E00B89E6A /* RecordNoteBottomListView.swift */,
+			);
+			path = RecordNoteView;
+			sourceTree = "<group>";
+		};
+		603F49C72DDDD0B500B89E6A /* RecordingView */ = {
+			isa = PBXGroup;
+			children = (
+				606852032DCA682100889B1E /* RecordingView.swift */,
+			);
+			path = RecordingView;
+			sourceTree = "<group>";
+		};
+		603F49C82DDDD0BF00B89E6A /* SettingView */ = {
+			isa = PBXGroup;
+			children = (
+				60453ED72DB8F0880053859F /* SettingView.swift */,
+			);
+			path = SettingView;
+			sourceTree = "<group>";
+		};
+		603F49C92DDDD0C500B89E6A /* HomeView */ = {
+			isa = PBXGroup;
+			children = (
+				60453ED52DB8F0680053859F /* HomeView.swift */,
+				603F49CB2DDDD10E00B89E6A /* HomeBottomListView.swift */,
+				603F49CE2DDDD19800B89E6A /* HomeTopListView.swift */,
+			);
+			path = HomeView;
+			sourceTree = "<group>";
+		};
+		603F49D02DDE119600B89E6A /* DetailInformView */ = {
+			isa = PBXGroup;
+			children = (
+				603F49D12DDE11A800B89E6A /* DetailInformView.swift */,
+				603F49D32DDE15F600B89E6A /* DetailInformTopView.swift */,
+				603F49D52DDE162A00B89E6A /* DetailInformCenter.swift */,
+			);
+			path = DetailInformView;
+			sourceTree = "<group>";
+		};
 		60453ED92DB8FC5D0053859F /* Extension */ = {
 			isa = PBXGroup;
 			children = (
@@ -138,8 +200,8 @@
 			isa = PBXGroup;
 			children = (
 				602A0CED2DBBE1B5003255F2 /* testAudio_0.m4a */,
+				60E5C6C72DCC599B00635390 /* Chapter04_01.mp3 */,
 				6055C8BF2D00A550008678C1 /* testing.m4a */,
-				60F34B362CF5F76900A386EF /* audio.mp3 */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -176,11 +238,12 @@
 		6049CF302CF9D4D90060140F /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				606852032DCA682100889B1E /* RecordingView.swift */,
+				603F49D02DDE119600B89E6A /* DetailInformView */,
+				603F49C92DDDD0C500B89E6A /* HomeView */,
+				603F49C82DDDD0BF00B89E6A /* SettingView */,
+				603F49C72DDDD0B500B89E6A /* RecordingView */,
+				603F493D2DDDC72300B89E6A /* RecordNoteView */,
 				60453ED32DB8EF590053859F /* MainView.swift */,
-				60453ED72DB8F0880053859F /* SettingView.swift */,
-				60453ED52DB8F0680053859F /* HomeView.swift */,
-				60F34B242CF5F5F500A386EF /* RecordNoteView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -191,6 +254,7 @@
 				60F34B412CF73CB100A386EF /* RecordingVM.swift */,
 				606852012DCA5E4600889B1E /* RecordNoteVM.swift */,
 				602A0C9C2DBB8048003255F2 /* HomeVM.swift */,
+				603F49D72DDE174700B89E6A /* DetailInformVM.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -312,7 +376,7 @@
 				602A0CEE2DBBE1B5003255F2 /* testAudio_0.m4a in Resources */,
 				60F34B2A2CF5F5F800A386EF /* Assets.xcassets in Resources */,
 				60F34B2D2CF5F5F800A386EF /* Base in Resources */,
-				60F34B372CF5F76900A386EF /* audio.mp3 in Resources */,
+				60E5C6C82DCC599B00635390 /* Chapter04_01.mp3 in Resources */,
 				6055C8C02D00A550008678C1 /* testing.m4a in Resources */,
 				60566C302D64C11000509D48 /* config.xcconfig in Resources */,
 			);
@@ -329,16 +393,21 @@
 				60453ED42DB8EF620053859F /* MainView.swift in Sources */,
 				60453ED82DB8F0900053859F /* SettingView.swift in Sources */,
 				60F34B252CF5F5F500A386EF /* RecordNoteView.swift in Sources */,
+				603F49D42DDE15F600B89E6A /* DetailInformTopView.swift in Sources */,
 				60F34B442CF7401000A386EF /* OpenAIManager.swift in Sources */,
 				602A0CDF2DBBC072003255F2 /* IssueCoreData+CoreDataClass.swift in Sources */,
 				602A0CE02DBBC072003255F2 /* IssueCoreData+CoreDataProperties.swift in Sources */,
+				603F49D82DDE174700B89E6A /* DetailInformVM.swift in Sources */,
 				602A0CE32DBBC072003255F2 /* SchedulingTaskCoreData+CoreDataClass.swift in Sources */,
 				602A0CE42DBBC072003255F2 /* SchedulingTaskCoreData+CoreDataProperties.swift in Sources */,
+				603F49CF2DDDD19800B89E6A /* HomeTopListView.swift in Sources */,
 				602A0CE52DBBC072003255F2 /* TimelineCoreData+CoreDataClass.swift in Sources */,
 				602A0CE62DBBC072003255F2 /* TimelineCoreData+CoreDataProperties.swift in Sources */,
 				60F9E9452DB9EEEF0009B436 /* Router.swift in Sources */,
+				603F49D62DDE162A00B89E6A /* DetailInformCenter.swift in Sources */,
 				606852042DCA682500889B1E /* RecordingView.swift in Sources */,
 				602A0C9D2DBB8048003255F2 /* HomeVM.swift in Sources */,
+				603F493C2DDDC71E00B89E6A /* RecordNoteBottomListView.swift in Sources */,
 				60F9E94E2DBA34DE0009B436 /* TaskModel.xcdatamodeld in Sources */,
 				60453ED62DB8F0690053859F /* HomeView.swift in Sources */,
 				60453ED22DB8EC400053859F /* WOAIApp.swift in Sources */,
@@ -346,12 +415,15 @@
 				60F34B422CF73CB100A386EF /* RecordingVM.swift in Sources */,
 				60F34B462CF7404100A386EF /* OpenAIModels.swift in Sources */,
 				60F9E9492DBA27930009B436 /* JsonManager.swift in Sources */,
+				603F49412DDDC7CD00B89E6A /* RecordNoteTopView.swift in Sources */,
 				602A0CEC2DBBD59F003255F2 /* MeetingTaskModel.swift in Sources */,
 				60E5C6C62DCC4A7B00635390 /* String+.swift in Sources */,
 				60453EDB2DB8FC6C0053859F /* Color+.swift in Sources */,
+				603F49CC2DDDD10E00B89E6A /* HomeBottomListView.swift in Sources */,
 				60F34B212CF5F5F500A386EF /* AppDelegate.swift in Sources */,
 				6055C8B42D007EEC008678C1 /* WhisperManager.swift in Sources */,
 				602A0C9B2DBB723A003255F2 /* CoreDataManager.swift in Sources */,
+				603F49D22DDE11A800B89E6A /* DetailInformView.swift in Sources */,
 				602A0CE92DBBCCE3003255F2 /* MeetingTaskCoreData+CoreDataClass.swift in Sources */,
 				602A0CEA2DBBCCE3003255F2 /* MeetingTaskCoreData+CoreDataProperties.swift in Sources */,
 				60F9E9472DBA1E860009B436 /* MeetingTaskDTO.swift in Sources */,

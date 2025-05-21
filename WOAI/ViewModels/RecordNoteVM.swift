@@ -24,7 +24,7 @@ class RecordNoteVM: ObservableObject {
     
     func onAppear() {
         let files = (try? FileManager.default.contentsOfDirectory(at: FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!.appendingPathComponent("WOAIRecords"), includingPropertiesForKeys: nil)) ?? []
-
+        
         Task { @MainActor in
             // .hasPrefix -> 포함되어있으면 true
             self.recordedList = await withTaskGroup(of: RecordedModel.self) { group in
@@ -67,5 +67,16 @@ class RecordNoteVM: ObservableObject {
         
             let duration = await getDurationString(from: url)
         return RecordedModel(loadingTime: duration, name: fileName, url: url)
+    }
+    
+    func tapCell(idx: String) {
+        let fileManager = FileManager()
+        guard let tapped = self.recordedList.filter({ $0.id == idx }).first else {return}
+        do {
+            try fileManager.removeItem(at: tapped.url)
+        } catch let e {
+            print(e.localizedDescription)
+        }
+        self.onAppear()
     }
 }

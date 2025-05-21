@@ -8,7 +8,11 @@
 import Foundation
 
 // MARK: - MeetingTask
-struct MeetingTaskModel: Identifiable {
+struct MeetingTaskModel: Identifiable, Hashable {
+    static func == (lhs: MeetingTaskModel, rhs: MeetingTaskModel) -> Bool {
+        return lhs.id == rhs.id
+    }
+    
     var id: String { meetingTitle }
     
     let meetingTitle: String

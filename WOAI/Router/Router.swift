@@ -56,5 +56,6 @@ enum SomeRoute: Hashable {
     case recording
     case rocrdNote
     case settings
+    case detailInform(model: MeetingTaskModel)
 }
 

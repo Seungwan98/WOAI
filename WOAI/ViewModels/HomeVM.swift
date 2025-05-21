@@ -8,7 +8,8 @@ class HomeVM: ObservableObject {
     @Published var todaysMeetings: [MeetingTaskModel] = []
     
     private let dateFormatter = DateFormatter()
-
+    
+ 
     
     func onAppear() {
         let context = CoreDataManager.shared.container.viewContext

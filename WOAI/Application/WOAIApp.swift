@@ -25,6 +25,9 @@ struct WOAIApp: App {
                         SettingView()
                     case .rocrdNote:
                         RecordNoteView()
+                    case .detailInform(let model):
+                        let vm = DetailInformVM(meetingTask: model)
+                        DetailInformView(viewModel: vm)
                     }
                 }
             }

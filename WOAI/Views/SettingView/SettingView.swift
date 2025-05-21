@@ -14,8 +14,9 @@ import Combine
 struct SettingView: View {
     var body: some View {
         VStack {
-            Text("Settings").font(.title2)
-            Spacer().frame(height: 20)
+            Text("Settings")
+                .font(.title3)
+                .padding(.horizontal)
             VStack(alignment: .leading, spacing: 8) {
                 
                 Text("일반").font(.headline).foregroundStyle(Color.mainColor)

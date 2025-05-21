@@ -30,7 +30,7 @@ struct MeetingTaskDTO: Codable {
 }
 
 // MARK: - SchedulingTask
-struct SchedulingTask: Codable {
+struct SchedulingTask: Codable, Hashable {
     let subject, date, time: String
     let participants: [String]
 
@@ -43,7 +43,7 @@ struct SchedulingTask: Codable {
 }
 
 // MARK: - Task
-struct Issue: Codable {
+struct Issue: Codable, Hashable {
     let issueName, details: String
     let actionItems: [String]
 
@@ -55,7 +55,7 @@ struct Issue: Codable {
 }
 
 // MARK: - Timeline
-struct Timeline: Codable {
+struct Timeline: Codable, Hashable {
     let time, discussion: String
 
     enum CodingKeys: String, CodingKey {

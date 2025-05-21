@@ -3,9 +3,11 @@ import Combine
 import AVFAudio
 
 class RecordingVM: ObservableObject {
-    @Published var labelText: String = ""
+    @Published var labelText: String = "00:00"
     @Published var isRecording: Bool = false
     @Published var members: [String] = []
+    @Published var isAlert = false
+
     
     private var audioRecorder: AVAudioRecorder?
     private let audioSession = AVAudioSession.sharedInstance()
@@ -13,10 +15,14 @@ class RecordingVM: ObservableObject {
     private var fileName: String = ""
     private var startRecorded: Date? = nil
     private var finishRecorded: Date? = nil
+    private var timer: Timer?
+    private var timerCount = 0
     
     private let dateFormatter = DateFormatter()
     private let openAIManager: OpenAiManagerProtocol
     private let whisperManager: WhisperManager
+    
+    
     
     init() {
         guard let apiKey = Bundle.main.object(forInfoDictionaryKey: "chatGPTApiKey") as? String else {
@@ -38,22 +44,53 @@ class RecordingVM: ObservableObject {
             startRecording()
         }
     }
+    func startTimer() {
+        timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { _ in
+            self.timerCount += 1
+            let minutes = self.timerCount / 60
+            let seconds = self.timerCount % 60
+            self.labelText = String(format: "%02d:%02d", minutes, seconds)
+        }
+    }
+    func stopTimer() {
+        timer?.invalidate()
+        timer = nil
+    }
+    
+    
+    
+    func canRecord() {
+        
+        if self.isRecording {
+            startRecording()
+        } else {
+            stopRecording()
+            isAlert = true
+        }
+        
+        
+    }
     
     private func startRecording() {
         isRecording = true
-        labelText = "\n녹음중..."
+        startTimer()
         startRecorded = .now
         
         fileName = "recording_\(TimeManager.shared.getUntilDays(inputDate: startRecorded!) + " " + TimeManager.shared.getOnlyTimes(inputDate: startRecorded!)).m4a"
-
+        
         
         let folderURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!.appendingPathComponent("WOAIRecords")
         
+        do {
             // 폴더 없으면 생성
-        if !FileManager.default.fileExists(atPath: folderURL.path) {
-               try? FileManager.default.createDirectory(at: folderURL, withIntermediateDirectories: true)
-           }
-
+            if !FileManager.default.fileExists(atPath: folderURL.path) {
+                try? FileManager.default.createDirectory(at: folderURL, withIntermediateDirectories: true)
+            }
+            
+        }
+        
+        
+       
         let fileURL = folderURL.appendingPathComponent(fileName)
         
         
@@ -67,6 +104,7 @@ class RecordingVM: ObservableObject {
         do {
             audioRecorder = try AVAudioRecorder(url: fileURL, settings: settings)
             audioRecorder?.record()
+            self.recordingFileURL = fileURL
         } catch {
             print("녹음 시작 실패: \(error)")
         }
@@ -74,21 +112,27 @@ class RecordingVM: ObservableObject {
     
     private func stopRecording() {
         isRecording = false
-        labelText = "\n분석중..."
+        stopTimer()
         audioRecorder?.stop()
         finishRecorded = .now
-        
-        
-        //        if let url = recordingFileURL {
-        //            transcribeAndSummarize(url: URL(string: todo))
-        //        }
-        
-        if let url = Bundle.main.url(forResource: "testAudio_0", withExtension: "m4a") {
-            transcribeAndSummarize(url: url)
+       
+        if let url = recordingFileURL {
             
+            if FileManager.default.fileExists(atPath: url.path) {
+                print("✅ 파일 존재함: \(url )")
+            } else {
+                print("❌ 파일이 디스크에 없음: \(url.path)")
+            }
+            
+            transcribeAndSummarize(url: url)
         } else {
             print("❌ 파일을 찾을 수 없음")
         }
+        // Test
+        //        if let url = Bundle.main.url(forResource: "testAudio_0", withExtension: "m4a") {
+        //            transcribeAndSummarize(url: url)
+        //
+        //        }
     }
     
     private func transcribeAndSummarize(url: URL) {
@@ -96,14 +140,12 @@ class RecordingVM: ObservableObject {
             do {
                 let text = try await whisperManager.transcribeAudio(at: url)
                 
-                print("return Whisper \(text)")
-                
                 openAIManager.appendMeetingMembers(members: members)
                 let meetingTask = try await openAIManager.sendMessageStream(text: text)
                 
                 for try await message in meetingTask {
                     await MainActor.run {
-                       let viewContext = CoreDataManager.shared.container.viewContext
+                        let viewContext = CoreDataManager.shared.container.viewContext
                         let newMeeting = MeetingTaskCoreData(context: viewContext)
                         
                         newMeeting.meetingTitle = message.meetingTitle
@@ -117,7 +159,7 @@ class RecordingVM: ObservableObject {
                             newIssue.actionItems = $0.actionItems
                             newIssue.details = $0.details
                             newIssue.issueName = $0.issueName
-
+                            
                             newMeeting.addToIssues(newIssue)
                             return newIssue
                         }
@@ -126,7 +168,7 @@ class RecordingVM: ObservableObject {
                             newTimeline.discussion = $0.discussion
                             newTimeline.time = $0.time
                             newMeeting.addToTimeline(newTimeline)
-
+                            
                             return newTimeline
                         }
                         _ = message.schedulingTasks.map {
@@ -136,13 +178,11 @@ class RecordingVM: ObservableObject {
                             newSchedulingTask.subject = $0.subject
                             newSchedulingTask.time = $0.time
                             newMeeting.addToSchedulingTasks(newSchedulingTask)
-
+                            
                             return newSchedulingTask
                         }
-
                         
                         do {
-                            
                             try viewContext.save()
                             print("저장 성공")
                         } catch {
@@ -183,12 +223,4 @@ class RecordingVM: ObservableObject {
         }
     }
     
-    func onAppear() {
-        self.startRecording()
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 10) {
-            self.stopRecording()
-
-        }
-    }
 }
