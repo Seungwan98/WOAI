@@ -13,61 +13,74 @@ struct DetailInformCenterView: View {
     var body: some View {
         VStack {
             HStack {
-                Text("issues")
+                Text("Issues")
                     .font(.title)
                     .bold()
                     .padding(.horizontal)
                     .foregroundStyle(Color.mainColor)
-                
                 Spacer()
-                
             }.padding(.vertical)
             
             
-            VStack {
+            VStack(spacing: 10) {
                 ForEach(viewModel.meetingTask.issues, id: \.self) { issue in
-                    Text("\(issue.issueName)")
-                    Text("-------")
-                    Text("\(issue.details)")
-                    
-                    
+                    VStack {
+                        Text("\(issue.issueName)")
+                            .foregroundStyle(Color.mainColor)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .padding(4)
+
+                        Text("\(issue.details)")
+                        .foregroundStyle(Color.mainColor)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .padding(4)
+                        
+                    }.background(Color.mainBackground) .clipShape(RoundedRectangle(cornerRadius: 10))
                     
                 }
-            }
+            }.padding(.horizontal)
+            Spacer().frame(height: 10)
 
             
         }.frame(maxWidth: .infinity)
-            .background(Color.red)
+            .background(Color.white)
             .clipShape(RoundedRectangle(cornerRadius: 10))
             .padding(.horizontal)
         
+        
+        Spacer().frame(height: 6)
         
         VStack {
             HStack {
                 Text("TimeLine")
                     .font(.title)
                     .bold()
-                    .padding(.horizontal)
+                    .padding(.all)
                     .foregroundStyle(Color.mainColor)
                 Spacer()
-            }.padding(.vertical)
-            
-            
-            VStack {
-                ForEach(viewModel.meetingTask.timeline, id: \.self) { timeline in
-                    Text("\(timeline.time)")
-                    Text("\(timeline.discussion)")
-                    Text("-------")
-                    
-                    
-                    
-                    
-                }
             }
 
             
+            VStack(spacing: 10) {
+                ForEach(viewModel.meetingTask.timeline, id: \.self) { timeline in
+                    VStack {
+                        Text("\(timeline.time)")
+                            .foregroundStyle(Color.mainColor)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .padding(4)
+
+                        Text("\(timeline.discussion)")
+                        .foregroundStyle(Color.mainColor)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .padding(4)
+                        
+                    }.background(Color.mainBackground) .clipShape(RoundedRectangle(cornerRadius: 10))
+                    
+                }
+            }.padding(.horizontal)
+            Spacer().frame(height: 10)
         }.frame(maxWidth: .infinity)
-            .background(Color.red)
+            .background(Color.white)
             .clipShape(RoundedRectangle(cornerRadius: 10))
             .padding(.horizontal)
             .onAppear {

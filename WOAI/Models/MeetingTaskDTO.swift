@@ -6,7 +6,7 @@
 //
 
 import Foundation
-
+import CoreData
 // MARK: - MeetingTask
 struct MeetingTaskDTO: Codable {
     var uuid: UUID?

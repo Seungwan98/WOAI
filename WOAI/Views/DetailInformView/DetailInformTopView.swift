@@ -32,7 +32,7 @@ struct DetailInformTopView: View {
                 Spacer()
             }.padding(.bottom)
         }.frame(maxWidth: .infinity)
-            .background(Color.red)
+            .background(Color.white)
             .clipShape(RoundedRectangle(cornerRadius: 10))
             .padding(.horizontal)
             .padding(.top)

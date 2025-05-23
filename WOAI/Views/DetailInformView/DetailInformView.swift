@@ -32,21 +32,22 @@ struct DetailInformView: View {
                     .padding(.horizontal)
                     .foregroundStyle(.black)
             }
-//            let meetingTitle: String
-//            let meetingSummary: String
-//            let recordedAt: String
-//            let issues: [Issue]
-//            let timeline: [Timeline]
-//            let schedulingTasks: [SchedulingTask]
+
             ScrollView {
                 
                 DetailInformTopView(viewModel: viewModel)
                 DetailInformCenterView(viewModel: viewModel)
+                DetailInformBottomView(viewModel: viewModel)
                    
                 
             }
 
-        }.background(Color.mainBackground)
+        }.background(Color.mainBackground).navigationBarHidden(true)
+            .onReceive(viewModel.$popView) { pop in
+                       if pop {
+                           router.pop()
+                       }
+                   }
         
        
     }

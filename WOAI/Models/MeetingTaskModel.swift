@@ -28,7 +28,6 @@ struct MeetingTaskModel: Identifiable, Hashable {
     let finishDateTime: String
     
     
-    // ✅ 직접 사용하는 init
     init(
         meetingTitle: String,
         meetingSummary: String,
